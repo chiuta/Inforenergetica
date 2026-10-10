@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#10121e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f1e4" media="(prefers-color-scheme: light)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Inforenergetica">
+<meta name="format-detection" content="telephone=no">
+<title>Inforenergetica — curs interactiv</title>
+<meta name="description" content="Curs interactiv despre inforenergetică: concepte fundamentale, treisprezece grade și nivelul suprem IOS, glosar și autoevaluare. Document educațional despre o practică neconvențională, fără validare științifică; nu este sfat medical. Aplicație offline, fără frontiere.">
+<meta property="og:title" content="Inforenergetica — curs interactiv">
+<meta property="og:description" content="Curs educațional despre inforenergetică (13 grade + IOS), cu analiză SWOT/TOWS și un test de hazard. Practică fără validare științifică; nu este sfat medical.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ro_RO">
+<style>
+  :root{
+    --bg:#10121e;
+    --bg-alt:#171a2c;
+    --bg-alt2:#1e2238;
+    --gold:#c7a252;
+    --gold-dim:#a68d55;
+    --teal:#4fb8a8;
+    --teal-dim:#3a8a7f;
+    --maroon:#8b4a4a;
+    --ink:#ede7d8;
+    --ink-dim:#a9a6bc;
+    --border:rgba(237,231,216,0.13);
+    --border-strong:rgba(237,231,216,0.24);
+    --serif:Palatino,"Palatino Linotype","Iowan Old Style",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --radius:3px;
+    --transition:200ms ease;
+    --shadow:0 12px 32px rgba(0,0,0,0.4);
+    --topbar-h:60px;
+    --sat:env(safe-area-inset-top,0px);
+    --maroon-text:#e08e8e;
+  }
+  [data-theme="light"]{
+    --bg:#f6f1e4;
+    --bg-alt:#ede4cd;
+    --bg-alt2:#e3d7b8;
+    --gold:#7d5e1b;
+    --gold-dim:#7d5e1b;
+    --teal:#1a6a5f;
+    --teal-dim:#1a6a5f;
+    --maroon:#6b3232;
+    --maroon-text:#6b3232;
+    --ink:#221f2e;
+    --ink-dim:#5b5770;
+    --border:rgba(34,31,46,0.14);
+    --border-strong:rgba(34,31,46,0.26);
+    --shadow:0 12px 28px rgba(34,31,46,0.18);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overscroll-behavior-y:none;
+  }
+  button{touch-action:manipulation;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.25;margin:0 0 0.6em;color:var(--ink);}
+  h1{font-size:clamp(2.1rem,5vw,3.2rem);font-weight:500;}
+  h2{font-size:clamp(1.5rem,3vw,1.85rem);}
+  h3{font-size:1.2rem;color:var(--gold);}
+  p{margin:0 0 1.1em;max-width:66ch;}
+  a{color:var(--teal);}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--gold);color:var(--bg);}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+
+  /* Topbar */
+  .topbar{
+    height:calc(var(--topbar-h) + var(--sat));
+    padding-top:var(--sat);
+    display:flex;align-items:center;gap:0.9rem;
+    padding:0 max(1.1rem, env(safe-area-inset-right)) 0 max(1.1rem, env(safe-area-inset-left));
+    border-bottom:1px solid var(--border);
+    background:var(--bg);
+    position:sticky;top:0;z-index:60;
+  }
+  .menu-toggle{
+    display:none;
+    width:40px;height:40px;align-items:center;justify-content:center;
+    background:transparent;border:1px solid var(--border);border-radius:var(--radius);
+    color:var(--ink);flex:none;
+  }
+  .menu-toggle svg{width:18px;height:18px;}
+  .brand{display:flex;align-items:center;gap:0.6rem;background:none;border:none;color:var(--ink);padding:0;}
+  .brand-mark{width:30px;height:30px;flex:none;}
+  .brand-word{font-family:var(--serif);font-size:1.15rem;letter-spacing:0.02em;}
+  .topbar-spacer{flex:1;}
+  .theme-toggle{
+    width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+    background:transparent;border:1px solid var(--border);border-radius:var(--radius);
+    color:var(--gold);flex:none;
+  }
+  .theme-toggle:hover, .menu-toggle:hover{border-color:var(--border-strong);}
+  .theme-toggle svg{width:17px;height:17px;}
+  .theme-toggle .moon{display:none;}
+  [data-theme="light"] .theme-toggle .sun{display:none;}
+  [data-theme="light"] .theme-toggle .moon{display:block;}
+
+  /* Layout */
+  .layout{display:grid;grid-template-columns:250px 1fr;align-items:start;}
+  .backdrop{position:fixed;inset:0;background:rgba(4,5,10,0.55);opacity:0;pointer-events:none;transition:opacity var(--transition);z-index:45;}
+  .backdrop.show{opacity:1;pointer-events:auto;}
+
+  .sidebar{
+    position:sticky;top:calc(var(--topbar-h) + var(--sat));
+    height:calc(100vh - var(--topbar-h) - var(--sat));
+    height:calc(100dvh - var(--topbar-h) - var(--sat));
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    border-right:1px solid var(--border);
+    padding:1.4rem 0.9rem calc(3rem + env(safe-area-inset-bottom));
+    padding-left:max(0.9rem, env(safe-area-inset-left));
+  }
+  .nav-label{
+    font-size:0.78rem;color:var(--ink-dim);
+    margin:1.3rem 0.6rem 0.4rem;
+    font-family:var(--sans);
+  }
+  .nav-label:first-child{margin-top:0;}
+  .nav-group{display:flex;flex-direction:column;gap:1px;}
+  .nav-link{
+    display:flex;align-items:center;gap:0.55rem;
+    width:100%;text-align:left;
+    background:transparent;border:none;border-radius:var(--radius);
+    color:var(--ink-dim);padding:0.48rem 0.6rem;
+    font-size:0.92rem;
+    transition:background var(--transition),color var(--transition);
+  }
+  .nav-link .num{font-family:var(--serif);color:var(--gold-dim);font-size:0.85rem;min-width:1.3em;flex:none;}
+  .nav-link:hover{background:var(--bg-alt);color:var(--ink);}
+  .nav-link[aria-current="page"]{background:var(--bg-alt2);color:var(--ink);}
+  .nav-link[aria-current="page"] .num{color:var(--gold);}
+  .nav-link .dot{width:5px;height:5px;border-radius:50%;background:var(--teal);margin-left:auto;flex:none;opacity:0;}
+  .nav-link.visited .dot{opacity:1;}
+
+  .main{padding:2.6rem clamp(1.3rem,4vw,3.4rem) calc(6rem + env(safe-area-inset-bottom));min-width:0;max-width:1400px;}
+  .content-section{display:none;max-width:700px;}
+  .content-section.active{display:block;}
+  .eyebrow-rule{width:44px;height:2px;background:var(--gold);border:none;margin:0 0 1.4rem;}
+
+  /* Hero (only in Acasă) */
+  .hero{padding:1rem 0 2.6rem;text-align:center;position:relative;}
+  .hero::before{
+    content:"";position:absolute;inset:-2rem -1rem auto -1rem;height:420px;
+    background:radial-gradient(ellipse at 50% 20%, rgba(199,162,82,0.10), transparent 62%);
+    pointer-events:none;z-index:-1;
+  }
+  .hero-mark{width:150px;height:150px;margin:0 auto 1.4rem;}
+  .hero h1{margin-bottom:0.5rem;}
+  .hero-lede{max-width:56ch;margin:0 auto 1.6rem;color:var(--ink-dim);font-size:1.05rem;}
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    background:var(--gold);color:var(--bg);border:none;border-radius:var(--radius);
+    padding:0.7rem 1.3rem;font-size:0.95rem;font-weight:600;
+  }
+  .hero-cta:hover{background:var(--teal);}
+
+  .pulse-core{transform-box:fill-box;transform-origin:center;animation:pulse 4.5s ease-in-out infinite;}
+  .pulse-ring{transform-box:fill-box;transform-origin:center;animation:spin 90s linear infinite;}
+  @keyframes pulse{0%,100%{opacity:0.85;transform:scale(1);}50%{opacity:1;transform:scale(1.07);}}
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .icon-pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3s ease-in-out infinite;}
+  .flow-line{stroke-dasharray:4 5;animation:flowDash 3s linear infinite;}
+  @keyframes flowDash{to{stroke-dashoffset:-90;}}
+
+  /* Prose blocks */
+  .lede-block p:first-of-type{font-size:1.05rem;color:var(--ink-dim);}
+  .key-points{list-style:none;margin:0 0 1.4rem;padding:0;}
+  .key-points li{position:relative;padding-left:1.3em;margin-bottom:0.65em;max-width:64ch;}
+  .key-points li::before{content:"◆";color:var(--teal);position:absolute;left:0;top:0.08em;font-size:0.62em;}
+  .callout{
+    border-left:3px solid var(--teal);
+    background:var(--bg-alt);
+    padding:1rem 1.2rem;
+    border-radius:0 var(--radius) var(--radius) 0;
+    margin:1.6rem 0;
+  }
+  .callout-label{font-size:0.78rem;color:var(--teal);letter-spacing:0.03em;margin-bottom:0.35em;font-family:var(--sans);font-weight:600;}
+  .callout p{margin:0;}
+  .note{
+    border-left:3px solid var(--maroon);
+    background:var(--bg-alt);
+    padding:1rem 1.2rem;
+    border-radius:0 var(--radius) var(--radius) 0;
+    margin:1.6rem 0;
+  }
+  .note-label{font-size:0.78rem;color:var(--maroon-text);letter-spacing:0.03em;margin-bottom:0.35em;font-weight:600;}
+  .note p{margin:0;}
+
+  /* Grade header */
+  .grade-header{display:flex;align-items:baseline;gap:0.9rem;margin-bottom:0.3rem;}
+  .grade-num{font-family:var(--serif);font-size:2.6rem;color:var(--gold);line-height:1;}
+  .grade-header h2{margin-bottom:0;}
+  .grade-sub{color:var(--ink-dim);font-size:0.9rem;margin:0 0 1.6rem;}
+
+  .grade-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--border);}
+  .grade-nav-btn{
+    background:transparent;border:1px solid var(--border);border-radius:var(--radius);
+    color:var(--ink-dim);padding:0.55rem 0.9rem;font-size:0.88rem;
+    display:flex;align-items:center;gap:0.4rem;
+  }
+  .grade-nav-btn:hover{border-color:var(--gold);color:var(--ink);}
+  .grade-nav-btn.next{margin-left:auto;}
+
+  /* TOC grid on Acasă */
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin:1.6rem 0 2.2rem;max-width:640px;}
+  .toc-item{
+    display:flex;align-items:center;gap:0.7rem;
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+    padding:0.7rem 0.85rem;text-align:left;color:var(--ink);font-size:0.9rem;
+  }
+  .toc-item:hover{border-color:var(--gold);}
+  .toc-item .num{font-family:var(--serif);color:var(--gold);font-size:1.1rem;min-width:1.4em;}
+  .toc-tier-label{grid-column:1/-1;font-size:0.8rem;color:var(--ink-dim);margin:0.7rem 0 0.1rem;}
+
+  /* Concept subsections */
+  .concept-block{margin-bottom:1.8rem;}
+  .triad-list{list-style:none;margin:0.8rem 0 1.2rem;padding:0;display:flex;flex-direction:column;gap:0.7rem;}
+  .triad-list li{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:0.8rem 1rem;}
+  .triad-list b{color:var(--gold);font-family:var(--serif);}
+
+  /* SWOT / TOWS matrices */
+  .matrix-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:0 0 2.2rem;}
+  .matrix-card{border-radius:var(--radius);padding:1.2rem 1.3rem;background:var(--bg-alt);border-top:3px solid var(--border);}
+  .matrix-card.accent-teal{border-top-color:var(--teal);}
+  .matrix-card.accent-maroon{border-top-color:var(--maroon);}
+  .matrix-card.accent-gold{border-top-color:var(--gold);}
+  .matrix-tag{font-size:0.72rem;color:var(--ink-dim);display:block;margin-bottom:0.3em;}
+  .matrix-card h4{font-family:var(--serif);font-size:1.05rem;margin:0 0 0.7em;color:var(--ink);}
+  .matrix-card ul{list-style:none;margin:0;padding:0;}
+  .matrix-card ul li{position:relative;padding-left:1.1em;margin-bottom:0.55em;font-size:0.9rem;max-width:none;line-height:1.5;}
+  .matrix-card ul li::before{content:"—";color:var(--ink-dim);position:absolute;left:0;}
+  @media (max-width:640px){.matrix-grid{grid-template-columns:1fr;}}
+
+  /* IOS special panel */
+  .ios-panel{
+    border:1px solid var(--border-strong);border-radius:var(--radius);
+    background:linear-gradient(180deg, color-mix(in srgb, var(--gold) 7%, var(--bg)), var(--bg) 65%);
+    padding:1.7rem 1.7rem 0.2rem;margin-bottom:0.2rem;
+  }
+
+  /* Glossary */
+  .glossary-search{
+    width:100%;max-width:360px;
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+    color:var(--ink);padding:0.6rem 0.8rem;font-size:16px;margin-bottom:1.6rem;
+  }
+  .glossary-search:focus-visible{border-color:var(--teal);}
+  .glossary-list{display:flex;flex-direction:column;gap:0.9rem;}
+  .glossary-item{border-bottom:1px solid var(--border);padding-bottom:0.9rem;}
+  .glossary-term{font-family:var(--serif);color:var(--gold);font-size:1.05rem;margin-bottom:0.25em;}
+  .glossary-def{margin:0;color:var(--ink-dim);max-width:60ch;}
+  .glossary-empty{display:none;color:var(--ink-dim);font-style:italic;}
+
+  /* Quiz */
+  .quiz-progress{font-size:0.85rem;color:var(--ink-dim);margin-bottom:0.6rem;}
+  .quiz-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;max-width:620px;}
+  .quiz-question{font-family:var(--serif);font-size:1.15rem;margin-bottom:1rem;}
+  .quiz-options{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.55rem;}
+  .quiz-option{
+    display:block;width:100%;text-align:left;
+    background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);
+    color:var(--ink);padding:0.65rem 0.85rem;font-size:0.94rem;
+    transition:border-color var(--transition);
+  }
+  .quiz-option:hover:not(:disabled){border-color:var(--gold);}
+  .quiz-option:disabled{cursor:default;}
+  .quiz-option.correct{border-color:var(--teal);background:color-mix(in srgb, var(--teal) 16%, var(--bg));}
+  .quiz-option.incorrect{border-color:var(--maroon);background:color-mix(in srgb, var(--maroon) 16%, var(--bg));}
+  .quiz-explain{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);color:var(--ink-dim);font-size:0.92rem;}
+  .quiz-explain p{margin:0;}
+  .quiz-next{margin-top:1.1rem;background:var(--gold);color:var(--bg);border:none;border-radius:var(--radius);padding:0.6rem 1.1rem;font-size:0.9rem;font-weight:600;}
+  .quiz-next:hover{background:var(--teal);}
+  .quiz-result h3{margin-top:0;}
+  .quiz-restart{margin-top:0.6rem;background:transparent;border:1px solid var(--border);border-radius:var(--radius);color:var(--ink);padding:0.6rem 1.1rem;font-size:0.9rem;}
+  .quiz-restart:hover{border-color:var(--gold);}
+
+  footer.app-footer{
+    border-top:1px solid var(--border);
+    padding:1.2rem clamp(1.3rem,4vw,3.4rem);
+    color:var(--ink-dim);font-size:0.82rem;
+    grid-column:1 / -1;
+  }
+
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr;}
+    .menu-toggle{display:inline-flex;}
+    .sidebar{
+      position:fixed;top:0;left:-290px;width:280px;height:100vh;height:100dvh;
+      padding-top:calc(var(--topbar-h) + 1rem + var(--sat));
+      padding-bottom:calc(1rem + env(safe-area-inset-bottom));
+      background:var(--bg-alt);z-index:50;
+      transition:left var(--transition);
+      box-shadow:var(--shadow);
+    }
+    .sidebar{visibility:hidden;transition:left var(--transition),visibility 0s linear var(--transition);}
+    .sidebar.open{left:0;visibility:visible;transition:left var(--transition),visibility 0s;}
+    .toc-grid{grid-template-columns:1fr;}
+    .grade-num{font-size:2.1rem;}
+  }
+  @media (max-width:480px){
+    .topbar{gap:0.5rem;}
+    .progress-label{display:none;}
+    .tools-bar{gap:0.25rem;}
+    .icon-btn, .theme-toggle, .menu-toggle{width:38px;height:38px;}
+    .brand-word{display:none;}
+  }
+  @media print{
+    :root, [data-theme="light"]{
+      --bg:#ffffff; --bg-alt:#f5f5f3; --bg-alt2:#ededea; --ink:#181818; --ink-dim:#444;
+      --border:#ccc; --border-strong:#999; --gold:#7d5e1b; --teal:#1a6a5f; --maroon:#6b3232; --maroon-text:#6b3232;
+    }
+    body{background:#fff;color:#181818;}
+    .topbar,.progress-track,.sidebar,.grade-nav,.backdrop,.tools-bar,.path-map,.hero-cta{display:none !important;}
+    .content-section{display:block !important;max-width:none;opacity:1 !important;transform:none !important;animation:none !important;}
+    .content-section:not(:last-of-type){page-break-after:always;}
+    .main{padding:0.4cm 0.2cm;}
+    .layout{display:block;}
+  }
+
+  /* Toolbar icon buttons (topbar) */
+  .icon-btn{
+    width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+    background:transparent;border:1px solid var(--border);border-radius:var(--radius);
+    color:var(--ink);flex:none;touch-action:manipulation;
+  }
+  .icon-btn:hover{border-color:var(--border-strong);}
+  .icon-btn svg{width:17px;height:17px;}
+  .icon-btn.active{border-color:var(--teal);color:var(--teal);}
+  .tools-bar{display:flex;gap:0.4rem;}
+
+  /* Journal section */
+  .journal-textarea{
+    width:100%;min-height:220px;box-sizing:border-box;
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+    color:var(--ink);padding:0.9rem 1rem;font-family:var(--sans);font-size:16px;line-height:1.6;
+    resize:vertical;
+  }
+  .journal-textarea:focus-visible{border-color:var(--teal);}
+  .journal-actions{display:flex;gap:0.7rem;margin-top:1rem;flex-wrap:wrap;}
+  .journal-btn{
+    background:var(--gold);color:var(--bg);border:none;border-radius:var(--radius);
+    padding:0.6rem 1.1rem;font-size:0.9rem;font-weight:600;
+  }
+  .journal-btn:hover{background:var(--teal);}
+  .journal-btn.secondary{background:transparent;border:1px solid var(--border);color:var(--ink);font-weight:400;}
+  .journal-btn.secondary:hover{border-color:var(--gold);}
+  .journal-status{font-size:0.82rem;color:var(--ink-dim);margin-top:0.6rem;min-height:1.2em;}
+  .journal-hint{font-size:0.82rem;color:var(--ink-dim);margin:0.5rem 0 1.2rem;}
+
+  /* Progress bar */
+  .progress-track{height:3px;background:var(--border);overflow:hidden;}
+  .progress-fill{height:100%;width:0%;background:linear-gradient(90deg, var(--teal), var(--gold));transition:width 500ms ease;}
+  .progress-label{font-size:0.72rem;color:var(--ink-dim);flex:none;white-space:nowrap;}
+
+  /* Section entrance animation */
+  .content-section.active{animation:sectionFade 320ms ease;}
+  @keyframes sectionFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+  /* Grade icon */
+  .grade-icon{width:46px;height:46px;flex:none;}
+
+  /* Diagrams */
+  .diagram-wrap{margin:1.6rem 0 2rem;text-align:center;}
+  .diagram-wrap svg{max-width:100%;height:auto;width:240px;}
+  .diagram-caption{font-size:0.85rem;color:var(--ink-dim);margin-top:0.7rem;max-width:52ch;margin-left:auto;margin-right:auto;}
+  .diagram-legend{display:flex;flex-wrap:wrap;gap:1.1rem;justify-content:center;margin-top:1rem;font-size:0.86rem;color:var(--ink-dim);}
+  .diagram-legend-item{display:flex;align-items:center;gap:0.45rem;}
+  .diagram-legend-dot{width:10px;height:10px;border-radius:50%;flex:none;}
+
+  /* Path map (Acasă) */
+  .path-map{display:flex;flex-wrap:wrap;align-items:center;margin:1.6rem 0 0.4rem;}
+  .path-node{
+    width:40px;height:40px;border-radius:50%;flex:none;
+    border:2px solid var(--border-strong);background:var(--bg-alt);color:var(--ink-dim);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:0.82rem;
+    transition:background var(--transition),border-color var(--transition),color var(--transition),box-shadow var(--transition);
+  }
+  .path-node:hover{border-color:var(--gold);}
+  .path-node.visited{background:var(--gold);border-color:var(--gold);color:var(--bg);}
+  .path-node.ios-node{border-color:var(--teal);color:var(--teal);font-size:0.6rem;font-weight:700;}
+  .path-node.ios-node.visited{background:var(--teal);color:var(--bg);}
+  .path-node.current{box-shadow:0 0 0 3px color-mix(in srgb, var(--teal) 35%, transparent);}
+  .path-connector{width:13px;height:2px;background:var(--border-strong);flex:none;transition:background var(--transition);}
+  .path-connector.done{background:var(--gold);}
+  @media (max-width:480px){.path-node{width:32px;height:32px;font-size:0.68rem;} .path-connector{width:7px;}}
+
+  /* Quiz result gauge */
+  .quiz-gauge-wrap{display:flex;align-items:center;gap:1.3rem;margin-bottom:1.1rem;}
+  .quiz-gauge{width:92px;height:92px;flex:none;}
+  .quiz-gauge-ring{transform:rotate(-90deg);transform-origin:50% 50%;}
+  .quiz-gauge-fill{transition:stroke-dashoffset 700ms ease;}
+
+  /* Global search (sidebar) */
+  .global-search-wrap{margin-bottom:1rem;position:relative;}
+  .global-search{width:100%;box-sizing:border-box;background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);color:var(--ink);padding:0.55rem 0.7rem;font-size:16px;}
+  .global-search:focus-visible{border-color:var(--teal);}
+  .global-search-results{display:none;margin-top:0.5rem;max-height:320px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-alt2);}
+  .global-search-results.show{display:block;}
+  .gsr-item{display:block;width:100%;text-align:left;padding:0.55rem 0.7rem;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--ink);}
+  .gsr-item:last-child{border-bottom:none;}
+  .gsr-item:hover{background:var(--bg-alt);}
+  .gsr-item .gsr-title{font-family:var(--serif);color:var(--gold);display:block;margin-bottom:0.15em;font-size:0.86rem;}
+  .gsr-item .gsr-snippet{color:var(--ink-dim);font-size:0.78rem;line-height:1.4;}
+  .gsr-item mark{background:color-mix(in srgb, var(--gold) 35%, transparent);color:var(--ink);border-radius:2px;}
+  .gsr-empty{padding:0.6rem 0.7rem;color:var(--ink-dim);font-size:0.82rem;}
+
+  /* Concept connection map */
+  .cmap-node{cursor:pointer;}
+  .cmap-node circle{transition:stroke var(--transition),fill var(--transition);}
+  .cmap-node:hover circle, .cmap-node:focus-visible circle{fill:var(--gold);}
+  .cmap-node:hover text, .cmap-node:focus-visible text{fill:var(--bg) !important;}
+  .cmap-edge{transition:stroke-opacity var(--transition);}
+
+  /* Permanent disclaimer */
+  .disclaimer{border:1px solid var(--maroon);border-left-width:4px;background:var(--bg-alt);border-radius:var(--radius);padding:0.8rem 1rem;margin:0 0 1.8rem;font-size:0.88rem;line-height:1.5;max-width:none;}
+  .disclaimer strong{color:var(--maroon-text);}
+  .disclaimer p{margin:0;max-width:none;}
+  footer.app-footer .foot-disc{display:block;margin-top:0.5rem;}
+  @media print{.disclaimer{border:1px solid #000;color:#000;background:#fff;}.disclaimer strong{color:#000;}}
+  .calib-note{font-size:0.85rem;color:var(--ink-dim);margin:0 0 1.2rem;max-width:66ch;}
+
+  /* Calibration test */
+  .calib-card:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  .calib-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;max-width:420px;margin:1.4rem 0;}
+  .calib-card{aspect-ratio:1;border-radius:var(--radius);border:2px solid var(--border-strong);background:var(--bg-alt);color:var(--ink-dim);font-family:var(--serif);font-size:1.7rem;display:flex;align-items:center;justify-content:center;transition:border-color var(--transition),color var(--transition);}
+  .calib-card:hover:not(:disabled){border-color:var(--gold);}
+  .calib-card.correct{border-color:var(--teal);color:var(--teal);}
+  .calib-card.incorrect{border-color:var(--maroon);color:var(--maroon-text);}
+  .calib-status{font-size:0.92rem;margin:0.6rem 0 0.3rem;}
+  .calib-stats{font-size:0.88rem;color:var(--ink-dim);margin-bottom:1.2rem;}
+</style>
+</head>
+<body>
+<noscript><p style="margin:0;padding:1rem;font-family:sans-serif;background:#fff;color:#000;">Această aplicație are nevoie de JavaScript pentru navigarea între secțiuni. Avertisment: inforenergetica este o practică neconvențională, fără validare științifică; conținutul nu este sfat medical.</p></noscript>
+
+<div class="topbar">
+  <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul" aria-controls="sidebar" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <button class="brand" data-target="acasa" aria-label="Acasă">
+    <svg class="brand-mark" viewBox="0 0 60 60" aria-hidden="true">
+      <circle cx="30" cy="30" r="26" fill="none" style="stroke:var(--gold)" stroke-opacity="0.35" stroke-dasharray="2 4"/>
+      <circle cx="30" cy="30" r="19" fill="none" style="stroke:var(--teal)" stroke-opacity="0.55"/>
+      <circle cx="30" cy="30" r="12" fill="none" style="stroke:var(--gold)" stroke-opacity="0.75"/>
+      <circle cx="30" cy="30" r="4" style="fill:var(--gold)"/>
+    </svg>
+    <span class="brand-word">Inforenergetica</span>
+  </button>
+  <div class="topbar-spacer"></div>
+  <span class="progress-label" id="progressLabel">0 / 14 grade</span>
+  <div class="tools-bar">
+    <button class="icon-btn" id="ttsToggle" aria-label="Citește secțiunea cu voce tare" title="Ascultă secțiunea curentă">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a9 9 0 0 1 0 12"/></svg>
+    </button>
+    <button class="icon-btn" id="wakeToggle" aria-label="Păstrează ecranul activ" title="Păstrează ecranul activ">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="12" cy="11" r="2.4"/></svg>
+    </button>
+    <button class="icon-btn" id="fullscreenToggle" aria-label="Ecran complet" title="Ecran complet">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+    </button>
+    <button class="icon-btn" id="printBtn" aria-label="Printează sau exportă tot cursul ca PDF" title="Printează / exportă PDF">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    </button>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Comută tema deschisă/închisă">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="4.9" y1="4.9" x2="6.6" y2="6.6"/><line x1="17.4" y1="17.4" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="6.6" y2="17.4"/><line x1="17.4" y1="6.6" x2="19.1" y2="4.9"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.7A8.5 8.5 0 1 1 9.3 3.5a7 7 0 0 0 11.2 11.2Z"/></svg>
+  </button>
+</div>
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="backdrop" id="backdrop"></div>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Navigare curs">
+    <div class="global-search-wrap">
+      <input type="text" class="global-search" id="globalSearch" placeholder="Caută în tot cursul…" aria-label="Caută în tot cursul">
+      <div class="global-search-results" id="globalSearchResults"></div>
+    </div>
+    <div class="nav-group">
+      <button class="nav-link" data-target="acasa"><span class="num">—</span><span>Acasă</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="istoric"><span class="num">—</span><span>Istoric și context</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="swot"><span class="num">—</span><span>Analiză SWOT / TOWS</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="concepte"><span class="num">—</span><span>Concepte fundamentale</span><span class="dot"></span></button>
+    </div>
+
+    <div class="nav-label">Gradele cursului</div>
+    <div class="nav-group">
+      <button class="nav-link" data-target="grad-1"><span class="num">I</span><span>Fundamente</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-2"><span class="num">II</span><span>Sistemele vii</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-3"><span class="num">III</span><span>Structura triadică</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-4"><span class="num">IV</span><span>Teledeterminări</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-5"><span class="num">V</span><span>Terapii inforenergetice</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-6"><span class="num">VI</span><span>Protecție energetică</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-7"><span class="num">VII</span><span>Cunoaștere divină</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-8"><span class="num">VIII</span><span>Etică și discernământ</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-9"><span class="num">IX</span><span>Sisteme complexe</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-10"><span class="num">X</span><span>Amprente temporale</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-11"><span class="num">XI</span><span>Discernământ avansat</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-12"><span class="num">XII</span><span>Rețele geopatice</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="grad-13"><span class="num">XIII</span><span>Practica matură</span><span class="dot"></span></button>
+    </div>
+
+    <div class="nav-label">Nivelul suprem</div>
+    <div class="nav-group">
+      <button class="nav-link" data-target="ios"><span class="num">IOS</span><span>Nivelul suprem</span><span class="dot"></span></button>
+    </div>
+
+    <div class="nav-label">Resurse</div>
+    <div class="nav-group">
+      <button class="nav-link" data-target="jurnal"><span class="num">—</span><span>Jurnal personal</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="calibrare"><span class="num">—</span><span>Test de calibrare</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="glosar"><span class="num">—</span><span>Glosar</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="autoevaluare"><span class="num">—</span><span>Autoevaluare</span><span class="dot"></span></button>
+      <button class="nav-link" data-target="resurse"><span class="num">—</span><span>Resurse și continuare</span><span class="dot"></span></button>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <aside class="disclaimer" role="note" aria-label="Avertisment permanent">
+      <p><strong>Avertisment:</strong> inforenergetica este o practică neconvențională, fără validare științifică — mecanismele descrise nu au fost confirmate prin studii controlate, iar comunitatea științifică o consideră pseudoștiință. Cursul descrie o tradiție, în scop educativ și cultural; <strong>nu este sfat medical, diagnostic sau tratament</strong> și nu înlocuiește medicul. Nu amâna și nu întrerupe un tratament prescris. Nicio valoare afișată în aplicație (inclusiv în testul de calibrare) nu este o măsurătoare fizică.</p>
+    </aside>
+
+    <section class="content-section active" id="acasa">
+      <div class="hero">
+        <svg class="hero-mark" viewBox="0 0 150 150" aria-hidden="true">
+          <circle class="pulse-ring" cx="75" cy="75" r="64" fill="none" style="stroke:var(--gold)" stroke-opacity="0.3" stroke-dasharray="1 7" stroke-linecap="round"/>
+          <circle cx="75" cy="75" r="48" fill="none" style="stroke:var(--teal)" stroke-opacity="0.5"/>
+          <circle cx="75" cy="75" r="32" fill="none" style="stroke:var(--gold)" stroke-opacity="0.65"/>
+          <g class="pulse-ring" style="stroke:var(--teal)" stroke-opacity="0.55">
+            <line x1="75" y1="27" x2="75" y2="11" /><line x1="75" y1="123" x2="75" y2="139" />
+            <line x1="27" y1="75" x2="11" y2="75" /><line x1="123" y1="75" x2="139" y2="75" />
+            <line x1="41.6" y1="41.6" x2="30.8" y2="30.8" /><line x1="108.4" y1="108.4" x2="119.2" y2="119.2" />
+            <line x1="41.6" y1="108.4" x2="30.8" y2="119.2" /><line x1="108.4" y1="41.6" x2="119.2" y2="30.8" />
+          </g>
+          <circle class="pulse-core" cx="75" cy="75" r="13" style="fill:var(--gold)"/>
+        </svg>
+        <h1>Inforenergetica</h1>
+        <p class="hero-lede">O disciplină de graniță, practicată mai ales în spațiul românesc, care privește realitatea ca pe o rețea de informație purtată de energie — de la câmpuri electromagnetice și calorice, până la structura nevăzută a ființei vii. Acest curs urmează structura pe paisprezece niveluri de cunoaștere — treisprezece grade și nivelul suprem, IOS — documentată de cea mai veche școală identificabilă de profil din România.</p>
+        <button class="hero-cta" data-target="concepte">Începe parcursul
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+
+      <hr class="eyebrow-rule">
+      <h2>Ce este inforenergetica?</h2>
+      <div class="lede-block">
+        <p>Numele îmbină „info-”, de la informație, cu „energetică” — studiul felului în care informația se organizează și circulă printr-un suport energetic. Disciplina se practică mai ales în România, adesea împreună cu radiestezia, și se prezintă pe sine ca o „știință spirituală”: își asumă deopotrivă vocabularul teoriei informației și al fizicii câmpurilor, alături de o componentă spirituală, în cele mai multe cazuri de rădăcină creștin-ortodoxă.</p>
+        <p>În centrul disciplinei stă ideea unei percepții extinse: capacitatea de a observa, interpreta și folosi voluntar semnale care depășesc, ca natură sau ca rază de acțiune, simțurile obișnuite. Radiestezia — tratată pe larg în aplicația <strong>RADIESTEZIA</strong> din aceeași colecție — oferă instrumentul tehnic de start; inforenergetica preia acest fundament și îl extinde spre sistemele vii, structura ființei și dimensiunea spirituală a practicii.</p>
+      </div>
+
+      <h3>Cum e organizat acest curs</h3>
+      <p>Materialul este structurat pe treisprezece grade succesive, de la Gradul I până la Gradul XIII, urmate de IOS — nivelul suprem al tradiției, nu un al paisprezecelea grad numerotat, ci o recunoaștere distinctă, așa cum e descrisă de cea mai veche școală identificabilă din acest domeniu. Fiecare grad are un scurt fundal teoretic, punctele-cheie de reținut și o aplicație practică descrisă. Un jurnal personal, un glosar și un test de autoevaluare încheie parcursul.</p>
+
+      <div class="path-map" id="pathMap" aria-label="Progresul prin cele treisprezece grade și IOS">
+        <button class="path-node" data-target="grad-1">I</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-2">II</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-3">III</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-4">IV</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-5">V</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-6">VI</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-7">VII</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-8">VIII</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-9">IX</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-10">X</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-11">XI</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-12">XII</button><span class="path-connector"></span>
+        <button class="path-node" data-target="grad-13">XIII</button><span class="path-connector"></span>
+        <button class="path-node ios-node" data-target="ios">IOS</button>
+      </div>
+
+      <div class="toc-grid">
+        <div class="toc-tier-label" style="margin-top:0;">Gradele cursului</div>
+        <button class="toc-item" data-target="grad-1"><span class="num">I</span><span>Fundamente</span></button>
+        <button class="toc-item" data-target="grad-2"><span class="num">II</span><span>Sistemele vii</span></button>
+        <button class="toc-item" data-target="grad-3"><span class="num">III</span><span>Structura triadică</span></button>
+        <button class="toc-item" data-target="grad-4"><span class="num">IV</span><span>Teledeterminări</span></button>
+        <button class="toc-item" data-target="grad-5"><span class="num">V</span><span>Terapii inforenergetice</span></button>
+        <button class="toc-item" data-target="grad-6"><span class="num">VI</span><span>Protecție energetică</span></button>
+        <button class="toc-item" data-target="grad-7"><span class="num">VII</span><span>Cunoaștere divină</span></button>
+        <button class="toc-item" data-target="grad-8"><span class="num">VIII</span><span>Etică și discernământ</span></button>
+        <button class="toc-item" data-target="grad-9"><span class="num">IX</span><span>Sisteme complexe</span></button>
+        <button class="toc-item" data-target="grad-10"><span class="num">X</span><span>Amprente temporale</span></button>
+        <button class="toc-item" data-target="grad-11"><span class="num">XI</span><span>Discernământ avansat</span></button>
+        <button class="toc-item" data-target="grad-12"><span class="num">XII</span><span>Rețele geopatice</span></button>
+        <button class="toc-item" data-target="grad-13"><span class="num">XIII</span><span>Practica matură</span></button>
+
+        <div class="toc-tier-label">Nivelul suprem</div>
+        <button class="toc-item" data-target="ios"><span class="num">IOS</span><span>Nivelul suprem</span></button>
+      </div>
+    </section>
+
+    <section class="content-section" id="istoric">
+      <hr class="eyebrow-rule">
+      <h2>Istoric și context</h2>
+      <p>Ca multe discipline din familia bioenergetică, inforenergetica a circulat mai ales informal, în cercuri restrânse, în deceniile comuniste, când practicile de acest fel nu aveau loc în spațiul public. După 1989, radiestezia și inforenergetica au ieșit la lumină prin cursuri organizate — cea mai veche structură identificabilă este școala fondată în 1987 de Comandor Claudian Dumitriu, continuată astăzi de Lavinia Dumitriu, sub Societatea Română de Radiestezie și Fundația de Inforenergetică „Sf. Apostol Andrei”.</p>
+      <p>Această școală descrie o structură pe paisprezece niveluri de cunoaștere — de la Gradul I până la nivelul suprem, numit IOS — pe care acest curs o urmează îndeaproape, ca reper principal, fiind cea mai veche și mai documentată structură de acest fel găsită în cercetarea pentru acest curs. Ca în orice domeniu fără o autoritate centrală unică, există și alte școli și organizații care predau materiale asemănătoare, sub denumiri apropiate, fiecare declarându-se, adesea, singura autentică; acest curs nu ia parte la aceste dispute.</p>
+      <div class="callout">
+        <div class="callout-label">Legătură cu radiestezia</div>
+        <p>Radiestezia și inforenergetica sunt aproape întotdeauna predate împreună: radiestezia oferă tehnica de bază — pendulul, baghetele, protocolul de verificare — iar inforenergetica adaugă teoria informației, structura ființei și dimensiunea spirituală a practicii. Pentru partea tehnică, în detaliu, vezi aplicația <strong>RADIESTEZIA</strong> din aceeași colecție.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="swot">
+      <hr class="eyebrow-rule">
+      <h2>Analiză SWOT și TOWS a domeniului</h2>
+      <p>Cadrul SWOT (puncte forte, puncte slabe, oportunități, amenințări) și extensia sa, matricea TOWS, sunt instrumente de analiză strategică împrumutate din managementul organizațional. Aplicate aici, ele privesc <strong>inforenergetica drept domeniu</strong> — practica, structura ei pe grade, comunitatea de practicanți și peisajul instituțional descris mai sus, la Istoric — nu acest curs în sine, care rămâne o sinteză educațională independentă, fără interese instituționale proprii în domeniu.</p>
+
+      <h3>Analiza SWOT</h3>
+      <p>Punctele forte (S) și punctele slabe (W) țin de domeniu însuși — structura, comunitatea, codul etic. Oportunitățile (O) și amenințările (T) vin din context — publicul, reglementarea, concurența dintre școli.</p>
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 220 180" aria-hidden="true" style="width:200px;">
+          <line x1="110" y1="8" x2="110" y2="172" style="stroke:var(--border-strong)" stroke-width="1.5"/>
+          <line x1="8" y1="90" x2="212" y2="90" style="stroke:var(--border-strong)" stroke-width="1.5"/>
+          <circle class="pulse-core" cx="110" cy="90" r="5" style="fill:var(--gold)"/>
+          <text x="110" y="20" text-anchor="middle" style="fill:var(--ink-dim);font-size:9px;font-family:var(--sans)">INTERN</text>
+          <text x="110" y="166" text-anchor="middle" style="fill:var(--ink-dim);font-size:9px;font-family:var(--sans)">EXTERN</text>
+          <text x="16" y="94" text-anchor="start" style="fill:var(--teal);font-size:11px;font-family:var(--sans)">+</text>
+          <text x="204" y="94" text-anchor="end" style="fill:var(--maroon-text);font-size:11px;font-family:var(--sans)">−</text>
+        </svg>
+        <p class="diagram-caption">Cele patru cadrane ale analizei: intern/extern pe verticală, pozitiv/negativ pe orizontală.</p>
+      </div>
+      <div class="matrix-grid">
+        <div class="matrix-card accent-teal">
+          <span class="matrix-tag">Intern · pozitiv</span>
+          <h4>Puncte forte (S)</h4>
+          <ul>
+            <li>Structură pedagogică clară și progresivă — treisprezece grade succesive plus recunoașterea IOS, cu o logică internă ușor de urmărit.</li>
+            <li>Cod etic explicit și constant — aceleași patru principii (fără câștig material, binele celorlalți întâi, prudență, recunoștință) regăsite în aproape toate sursele consultate.</li>
+            <li>Continuitate istorică documentată — peste 35 de ani de activitate, cu o singură linie de transmitere identificabilă din 1987 până astăzi.</li>
+            <li>Comunitate mare de practicanți — ordinul zecilor de mii de absolvenți, după cifrele declarate de școala respectivă (neverificate independent).</li>
+            <li>Integrare firească cu radiestezia — o practică mai veche și mai cunoscută internațional, care oferă un punct de intrare tehnic, verificabil.</li>
+            <li>Componentă spirituală explicită, de rădăcină creștin-ortodoxă — rezonează cultural cu o parte semnificativă a publicului românesc.</li>
+          </ul>
+        </div>
+        <div class="matrix-card accent-maroon">
+          <span class="matrix-tag">Intern · negativ</span>
+          <h4>Puncte slabe (W)</h4>
+          <ul>
+            <li>Absența validării științifice — nicio sursă consultată nu citează studii controlate, publicate, care să confirme mecanismele descrise.</li>
+            <li>Fragmentare instituțională — mai multe școli și organizații concurente, unele acuzându-se reciproc de lipsă de autenticitate.</li>
+            <li>Terminologie greu de verificat extern — concepte precum „puterea inforenergetică” nu au o unitate de măsură sau un protocol de calibrare comun, agreat public.</li>
+            <li>Dependență de autoritatea unui fondator — risc de continuitate la schimbarea generației de lideri, deja vizibil în tranziția către un succesor.</li>
+            <li>Cost financiar posibil pentru cursanți — cursurile de acest tip se pot plăti individual sau în pachete (condițiile diferă de la o școală la alta și nu au fost verificate aici).</li>
+            <li>Absența unui organism extern de acreditare recunoscut de stat, dincolo de diplomele emise chiar de școlile care predau cursurile.</li>
+          </ul>
+        </div>
+        <div class="matrix-card accent-teal">
+          <span class="matrix-tag">Extern · pozitiv</span>
+          <h4>Oportunități (O)</h4>
+          <ul>
+            <li>Interes global crescut pentru practici complementare și holistice, inclusiv în rândul unui public mai tânăr.</li>
+            <li>Digitalizare și formate online (Zoom, video înregistrat, e-learning) — extindere dincolo de filialele fizice.</li>
+            <li>Diaspora română — comunitate globală de vorbitori de limbă română, posibilă extindere internațională.</li>
+            <li>Documentare și sistematizare externă (precum acest curs) — poate crește transparența și accesibilitatea informației despre domeniu.</li>
+            <li>Sinergie cu discipline conexe — geobiologie, dezvoltare personală, practici contemplative.</li>
+          </ul>
+        </div>
+        <div class="matrix-card accent-maroon">
+          <span class="matrix-tag">Extern · negativ</span>
+          <h4>Amenințări (T)</h4>
+          <ul>
+            <li>Etichetare publică drept pseudoștiință — risc reputațional, mai ales în spații academice sau media critice.</li>
+            <li>Concurența dintre școli cu pretenții de exclusivitate — confuzie pentru public și erodarea încrederii generale în domeniu.</li>
+            <li>Reglementare viitoare mai strictă a practicilor complementare de sănătate, la nivel național sau european.</li>
+            <li>Practici neserioase sau lipsite de codul etic transmis — discreditează întregul domeniu prin asociere.</li>
+            <li>Presiune și critică din partea comunității medicale și științifice, mai ales acolo unde practica atinge subiecte de sănătate.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Matricea TOWS</h3>
+      <p>Matricea TOWS încrucișează cele patru categorii pentru a genera direcții de acțiune: SO folosește punctele forte pentru a profita de oportunități, WO acoperă punctele slabe prin oportunități, ST apără punctele forte împotriva amenințărilor, iar WT limitează expunerea acolo unde punctele slabe întâlnesc amenințările.</p>
+      <div class="matrix-grid">
+        <div class="matrix-card accent-teal">
+          <span class="matrix-tag">Forțe × Oportunități</span>
+          <h4>Strategii SO</h4>
+          <ul>
+            <li>Folosirea structurii pedagogice clare și a codului etic documentat ca argument de diferențiere în extinderea către platforme online și public internațional.</li>
+            <li>Valorificarea legăturii cu radiestezia — deja cunoscută internațional — ca punte către interesul global pentru practici holistice.</li>
+            <li>Extinderea către diaspora română, sprijinită de formatele deja disponibile (Zoom, video, e-learning).</li>
+            <li>Colaborare cu discipline conexe (geobiologie, dezvoltare personală) pentru a lărgi comunitatea fără a dilua structura existentă.</li>
+          </ul>
+        </div>
+        <div class="matrix-card accent-gold">
+          <span class="matrix-tag">Forțe × Amenințări</span>
+          <h4>Strategii ST</h4>
+          <ul>
+            <li>Comunicarea explicită și constantă a limitelor metodei — exact codul etic deja transmis — ca protecție directă împotriva acuzațiilor de înlocuire a actului medical.</li>
+            <li>Folosirea istoriei de peste 35 de ani și a comunității mari de absolvenți ca argument de stabilitate în fața criticilor de autenticitate.</li>
+            <li>Menținerea strictă a codului deontologic ca barieră față de practicile neserioase care ar putea discredita domeniul prin asociere.</li>
+            <li>Documentarea transparentă a structurii pe grade (precum acest curs) ca răspuns la percepția de opacitate care alimentează eticheta de pseudoștiință.</li>
+          </ul>
+        </div>
+        <div class="matrix-card accent-gold">
+          <span class="matrix-tag">Slăbiciuni × Oportunități</span>
+          <h4>Strategii WO</h4>
+          <ul>
+            <li>Folosirea platformelor digitale pentru a standardiza și publica deschis materialul de curs, reducând confuzia creată de școlile rivale.</li>
+            <li>Documentare externă, independentă (asemenea acestui curs), care poate oferi context și transparență fără a pretinde o validare științifică ce nu există.</li>
+            <li>Explorarea unui cod de acreditare comun, agreat între mai multe școli, ca răspuns parțial la absența unui organism extern de reglementare.</li>
+            <li>Pachete și formate accesibile financiar, pentru a atenua bariera de cost în extinderea către un public mai larg.</li>
+          </ul>
+        </div>
+        <div class="matrix-card accent-maroon">
+          <span class="matrix-tag">Slăbiciuni × Amenințări</span>
+          <h4>Strategii WT</h4>
+          <ul>
+            <li>Evitarea confruntării publice cu școlile rivale — disputele despre „autenticitate” amplifică exact percepția de fragmentare pe care criticii o folosesc.</li>
+            <li>Clarificarea explicită, în toate materialele publice, a statutului de practică complementară, neconvențională, fără pretenții de validare științifică.</li>
+            <li>Pregătirea unui plan de succesiune instituțională clar, pentru a reduce riscul de disoluție la schimbarea generației de lideri.</li>
+            <li>Limitarea comunicării publice pe teme de sănătate la formulări care nu pot fi confundate cu recomandări medicale.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepte">
+      <hr class="eyebrow-rule">
+      <h2>Concepte fundamentale</h2>
+      <p>Înainte de a parcurge cele treisprezece grade și nivelul IOS, cursul așază câteva noțiuni de bază, reluate și adâncite pe parcurs. Fără ele, terminologia gradelor următoare rămâne greu de urmărit.</p>
+
+      <div class="concept-block">
+        <h3>Informație și energie</h3>
+        <p>Ideea centrală a disciplinei este că orice fenomen — de la o simplă senzație, până la starea de echilibru a unui organism — poate fi descris ca o cantitate de informație, organizată după un algoritm mai mult sau mai puțin complex, și „purtată” de un suport energetic: un câmp electromagnetic, o variație de temperatură, o reacție chimică, o mișcare mecanică. Informația și energia nu sunt, în această viziune, două lucruri separate, ci două fețe ale aceluiași fenomen.</p>
+      </div>
+
+      <div class="concept-block">
+        <h3>Structura triadică a ființei</h3>
+        <p>Cursul privește ființa vie ca pe o structură pe trei niveluri, aflate în interacțiune permanentă:</p>
+        <ul class="triad-list">
+          <li><b>Fizic</b> — corpul material, măsurabil, supus legilor fizicii clasice.</li>
+          <li><b>Biosic</b> — învelișul energetic-vital care susține și „hrănește” structura fizică; apropiat, ca idee, de ceea ce alte tradiții numesc „aură” sau „câmp bioenergetic”.</li>
+          <li><b>Noetic (sau noesic)</b> — dimensiunea mentală, informațională și spirituală: sediul conștiinței, al voinței și al legăturii cu planul divin.</li>
+        </ul>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 260 260" aria-hidden="true">
+            <circle class="pulse-ring" cx="130" cy="130" r="110" fill="none" style="stroke:var(--gold)" stroke-opacity="0.28" stroke-dasharray="1 6" stroke-linecap="round"/>
+            <circle cx="130" cy="130" r="78" fill="none" style="stroke:var(--teal)" stroke-opacity="0.5" stroke-width="1.5"/>
+            <circle cx="130" cy="130" r="46" fill="none" style="stroke:var(--gold)" stroke-opacity="0.7" stroke-width="1.5"/>
+            <circle class="pulse-core" cx="130" cy="130" r="10" style="fill:var(--gold)"/>
+          </svg>
+          <div class="diagram-legend">
+            <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--gold)"></span>Fizic</div>
+            <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--teal)"></span>Biosic</div>
+            <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--gold);opacity:0.4"></span>Noetic</div>
+          </div>
+          <p class="diagram-caption">Cele trei niveluri, în interacțiune constantă — nu ierarhie, ci dialog permanent, cu structura noetică susținută dinspre centru.</p>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <h3>Cordonul de argint</h3>
+        <p>O imagine tradițională, împrumutată și de alte curente spirituale, descrie o legătură continuă între structura noetică a fiecărei ființe și „Sursă” — numită, în materialele cu rădăcini creștine ale acestei tradiții, pur și simplu Dumnezeu. Practica este privită, între altele, ca un mod de a întări conștient această legătură.</p>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 120 200" aria-hidden="true" style="width:130px;">
+            <circle cx="60" cy="24" r="13" style="fill:var(--gold)" fill-opacity="0.85"/>
+            <path d="M60,38 C50,68 70,98 60,128 C50,158 70,172 60,184" fill="none" style="stroke:var(--teal)" stroke-width="2" class="flow-line" stroke-linecap="round"/>
+            <circle cx="60" cy="184" r="9" style="fill:var(--teal)" fill-opacity="0.9"/>
+          </svg>
+          <div class="diagram-legend">
+            <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--gold)"></span>Sursa</div>
+            <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--teal)"></span>Structura noetică</div>
+          </div>
+          <p class="diagram-caption">Legătura continuă dintre ființă și Sursă, pe care practica o poate, conform teoriei, întări.</p>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <h3>Câmpul informațional și teledeterminarea</h3>
+        <p>Teoria susține că informația despre orice sistem — viu sau neviu — rămâne accesibilă unui operator antrenat, indiferent de distanța fizică față de subiect. Această citire la distanță, numită teledeterminare, se face de regulă pe baza unui reprezentant al subiectului: o fotografie, un nume scris, o hartă.</p>
+      </div>
+
+      <div class="concept-block">
+        <h3>Operatorul și codul etic</h3>
+        <p>Persoana antrenată să lucreze cu aceste concepte este numită, în materialele cursurilor, operator. Toate sursele consultate insistă asupra unui cod etic strict — detaliat pe larg la Gradul VIII — care condiționează orice practică serioasă din acest domeniu.</p>
+      </div>
+
+      <div class="concept-block">
+        <h3>Harta legăturilor dintre grade</h3>
+        <p>Cursul se reia constant pe sine — un grad explică o tehnică, altul o reia din alt unghi câteva trepte mai încolo. Harta de mai jos leagă doar acele treceri numite explicit în text; fiecare nod se poate apăsa direct.</p>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 360 360" aria-hidden="false" role="img" aria-label="Harta legăturilor explicite dintre grade" style="width:320px;">
+            <line x1="180.0" y1="32.0" x2="35.7" y2="212.9" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <line x1="180.0" y1="32.0" x2="64.3" y2="272.3" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <line x1="180.0" y1="32.0" x2="35.7" y2="147.1" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <line x1="324.3" y1="147.1" x2="115.8" y2="313.3" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <line x1="324.3" y1="212.9" x2="295.7" y2="272.3" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <line x1="180.0" y1="328.0" x2="35.7" y2="212.9" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <line x1="180.0" y1="328.0" x2="64.3" y2="87.7" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <line x1="35.7" y1="212.9" x2="64.3" y2="87.7" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <line x1="180.0" y1="328.0" x2="115.8" y2="46.7" class="cmap-edge" style="stroke:var(--teal)" stroke-width="1" stroke-opacity="0.45"/>
+            <g class="cmap-node" data-target="grad-1" tabindex="0" role="button" aria-label="Gradul I"><circle cx="180.0" cy="32.0" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="180.0" y="36.0" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">I</text></g>
+            <g class="cmap-node" data-target="grad-2" tabindex="0" role="button" aria-label="Gradul II"><circle cx="244.2" cy="46.7" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="244.2" y="50.7" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">II</text></g>
+            <g class="cmap-node" data-target="grad-3" tabindex="0" role="button" aria-label="Gradul III"><circle cx="295.7" cy="87.7" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="295.7" y="91.7" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">III</text></g>
+            <g class="cmap-node" data-target="grad-4" tabindex="0" role="button" aria-label="Gradul IV"><circle cx="324.3" cy="147.1" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="324.3" y="151.1" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">IV</text></g>
+            <g class="cmap-node" data-target="grad-5" tabindex="0" role="button" aria-label="Gradul V"><circle cx="324.3" cy="212.9" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="324.3" y="216.9" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">V</text></g>
+            <g class="cmap-node" data-target="grad-6" tabindex="0" role="button" aria-label="Gradul VI"><circle cx="295.7" cy="272.3" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="295.7" y="276.3" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">VI</text></g>
+            <g class="cmap-node" data-target="grad-7" tabindex="0" role="button" aria-label="Gradul VII"><circle cx="244.2" cy="313.3" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="244.2" y="317.3" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">VII</text></g>
+            <g class="cmap-node" data-target="grad-8" tabindex="0" role="button" aria-label="Gradul VIII"><circle cx="180.0" cy="328.0" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="180.0" y="332.0" text-anchor="middle" style="fill:var(--ink);font-size:8.5px;font-family:var(--serif)">VIII</text></g>
+            <g class="cmap-node" data-target="grad-9" tabindex="0" role="button" aria-label="Gradul IX"><circle cx="115.8" cy="313.3" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="115.8" y="317.3" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">IX</text></g>
+            <g class="cmap-node" data-target="grad-10" tabindex="0" role="button" aria-label="Gradul X"><circle cx="64.3" cy="272.3" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="64.3" y="276.3" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">X</text></g>
+            <g class="cmap-node" data-target="grad-11" tabindex="0" role="button" aria-label="Gradul XI"><circle cx="35.7" cy="212.9" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="35.7" y="216.9" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">XI</text></g>
+            <g class="cmap-node" data-target="grad-12" tabindex="0" role="button" aria-label="Gradul XII"><circle cx="35.7" cy="147.1" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="35.7" y="151.1" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">XII</text></g>
+            <g class="cmap-node" data-target="grad-13" tabindex="0" role="button" aria-label="Gradul XIII"><circle cx="64.3" cy="87.7" r="17" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="64.3" y="91.7" text-anchor="middle" style="fill:var(--ink);font-size:8.5px;font-family:var(--serif)">XIII</text></g>
+            <g class="cmap-node" data-target="ios" tabindex="0" role="button" aria-label="IOS"><circle cx="115.8" cy="46.7" r="20" style="fill:var(--bg-alt);stroke:var(--gold)" stroke-width="1.4"/><text x="115.8" y="50.7" text-anchor="middle" style="fill:var(--ink);font-size:10px;font-family:var(--serif)">IOS</text></g>
+          </svg>
+          <p class="diagram-caption">Nouă legături explicite: de la percepție și verificare (I) spre discernământ (XI), consimțământ (IV↔IX), închiderea sesiunii (V↔VI) și codul etic care leagă VIII de XI, XIII și IOS.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-1">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><line x1="22" y1="10" x2="27" y2="28" style="stroke:var(--teal)" stroke-width="1.6" stroke-linecap="round"/><circle class="pulse-core" cx="27" cy="30" r="3" style="fill:var(--teal)"/></svg><span class="grade-num">I</span><h2>Fundamente: percepția dincolo de simțuri</h2></div>
+      <p class="grade-sub">Prima treaptă a cursului</p>
+      <p>Treapta de intrare pune bazele teoretice și senzoriale ale disciplinei. Cursantul este introdus în ideea centrală a inforenergeticii: că orice structură — vie sau nevie — poartă o „semnătură” informațională, purtată de un suport energetic care poate fi, în principiu, perceput și interpretat. Exercițiile de bază urmăresc antrenarea atenției și a percepției dincolo de canalele senzoriale obișnuite, folosind adesea radiestezia — pendulul, baghetele — ca instrument de lucru inițial, ușor de verificat și repetat.</p>
+      <p>Pedagogic, alegerea de a începe cu un instrument fizic — și nu cu percepția „liberă”, fără ajutor — nu este întâmplătoare: pendulul sau baghetele oferă un canal de exprimare vizibil pentru un răspuns pe care corpul îl produce oricum, dar pe care mintea conștientă nu îl observă direct. Cursantul învață, de fapt, să recunoască un semnal care exista deja, nu să inventeze unul nou — o distincție subliniată constant în materialele acestei tradiții, tocmai pentru a preveni confuzia dintre percepție și imaginație, temă reluată pe larg la gradul XI.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Ideea de „semnătură informațională” se sprijină pe conceptul, introdus la Concepte fundamentale, al informației purtate de un suport energetic. La gradul I, acest suport este, de regulă, concret și măsurabil — un câmp electromagnetic, o variație termică, o compoziție chimică — ceea ce face din structurile fizice nevii un teren de exersare relativ sigur: nu există riscul de a interpreta greșit o stare emoțională sau o suferință, pentru că subiectul cercetat nu are, propriu-zis, o stare interioară.</p>
+      <p>Cursul insistă asupra unei distincții pe care mulți cursanți o confundă la început: radiestezia (tehnica instrumentului) și inforenergetica (teoria din spatele ei) nu sunt sinonime. Radiestezia poate fi practicată, tehnic, fără nicio referire la structura triadică, la cordonul de argint sau la dimensiunea spirituală — dar inforenergetica, așa cum e transmisă de această tradiție, le include pe toate, chiar de la primul grad, ca fundal conceptual.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Diferența dintre percepția senzorială obișnuită și percepția inforenergetică, extinsă.</li>
+        <li>Noțiunea de „semnal” și de „suport energetic” al informației.</li>
+        <li>Radiestezia ca tehnică-punte: cum instrumentul amplifică un răspuns involuntar al corpului.</li>
+        <li>Calibrarea personală a instrumentului — pasul obligatoriu înaintea oricărei cercetări.</li>
+        <li>Metodele clasice de circumscriere: drumurilor, pătratelor succesive, spiralelor succesive.</li>
+        <li>Reguli de bază ale lucrului responsabil: calm, concentrare, verificare încrucișată a rezultatelor.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Calibrarea instrumentului: stabilirea, pentru fiecare cursant, a unui „răspuns da” și a unui „răspuns nu” personal, prin repetiție pe întrebări cu răspuns cunoscut.</li>
+        <li>Lucrul pe hartă: localizarea unui obiect sau a unei structuri cunoscute, folosind o hartă sau un plan, fără deplasare fizică.</li>
+        <li>Metoda drumurilor și metoda pătratelor succesive: tehnici clasice de circumscriere treptată a unei surse de semnal, prin reducerea progresivă a zonei cercetate.</li>
+        <li>Jurnalul de exersare: notarea fiecărei încercări, cu răspunsul obținut și verificarea ulterioară, indiferent de rezultat.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Cursurile de gradul I lucrează, de regulă, pe structuri fizice nevii — hărți, terenuri, obiecte — pentru că răspunsul poate fi verificat obiectiv (de exemplu, localizarea unei conducte cunoscute pe o hartă), înainte de a trece la sisteme vii, mult mai variabile.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Un exercițiu clasic de calibrare: se ascund, fără știrea cursantului, cinci obiecte identice ca formă, dintre care unul e făcut dintr-un material diferit (de exemplu, metal, printre obiecte de lemn). Cursantul încearcă să îl identifice folosind pendulul, apoi verifică rezultatul — repetând exercițiul de mai multe ori, în zile diferite, pentru a observa consecvența propriilor citiri.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="concepte">← Concepte fundamentale</button>
+        <button class="grade-nav-btn next" data-target="grad-2">Gradul II →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-2">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><circle cx="17" cy="22" r="8" fill="none" style="stroke:var(--teal)" stroke-width="1.5"/><circle class="icon-pulse" cx="27" cy="22" r="8" fill="none" style="stroke:var(--teal)" stroke-width="1.5" stroke-opacity="0.6"/></svg><span class="grade-num">II</span><h2>Sistemele vii: diagnostic, compatibilități și optimizări</h2></div>
+      <p class="grade-sub">A doua treaptă a cursului</p>
+      <p>Gradul II mută atenția de la structurile nevii spre sistemele vii — oameni, animale, plante — și grupează, sub aceeași etapă, trei direcții înrudite: diagnosticul stării generale, compatibilitatea dintre două sisteme și optimizarea graduală a echilibrului dintre ele.</p>
+      <p>Trecerea de la structuri nevii la sisteme vii schimbă fundamental natura exercițiului: un sistem viu are, spre deosebire de o conductă sau un zăcământ, o stare care variază de la o zi la alta, influențată de factori pe care operatorul nu îi controlează și, adesea, nici nu îi cunoaște. Din acest motiv, gradul II insistă mai puțin pe „citirea corectă” a unui moment și mai mult pe compararea relativă — între două sisteme, sau între același sistem, la momente diferite.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Cele trei direcții ale gradului — diagnostic, compatibilitate, optimizare — sunt, de fapt, trei unghiuri asupra aceleiași întrebări: cum se distribuie informația-energie într-un sistem viu, și ce se întâmplă atunci când două asemenea distribuții intră în contact. Diagnosticul privește un singur sistem, izolat; compatibilitatea privește relația dintre două; optimizarea privește posibilitatea de a ajusta, gradual, echilibrul rezultat. Materialele acestei tradiții insistă că niciuna dintre cele trei nu produce un rezultat „obiectiv”, în sensul științific al termenului — ci o citire orientativă, utilă mai ales prin comparație.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Diagnosticul inforenergetic: o citire generală a stării de echilibru a unui sistem viu, nu o examinare medicală.</li>
+        <li>Compatibilitatea inforenergetică: gradul de „rezonanță” resimțită între două sisteme.</li>
+        <li>Optimizarea: o ajustare graduală, verificată prin citiri repetate.</li>
+        <li>Cele trei direcții privesc distribuția informației-energie dintr-un unghi diferit: individual, relațional, ajustabil.</li>
+        <li>Citirea relativă (prin comparație) este preferată, la acest grad, citirii absolute.</li>
+        <li>Limitele explicite ale metodei: niciuna dintre aplicații nu înlocuiește un consult medical de specialitate.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Citirea „stării generale”: o singură întrebare largă (echilibrat / dezechilibrat), fără a specifica o cauză.</li>
+        <li>Compararea pereche: citirea aceluiași parametru la două sisteme similare, pentru a antrena discernământul relativ înaintea celui absolut.</li>
+        <li>Testarea compatibilității: formularea unei întrebări specifice despre relația dintre două sisteme, cu un răspuns pe o scală, nu binar.</li>
+        <li>Optimizarea în trepte: o singură ajustare mică, urmată de o nouă citire, înainte de a trece la următoarea.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Comparații simple — starea generală a două plante din același ghiveci, sau „rezonanța” a două încăperi cu orientare diferită — ca exercițiu introductiv în toate cele trei direcții ale acestui grad.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Un exercițiu de optimizare graduală: repoziționarea unui singur obiect dintr-o încăpere (de exemplu, un fotoliu), urmată de o pauză și de o nouă citire a „rezonanței” spațiului, înainte de a decide dacă schimbarea se păstrează.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-1">← Gradul I</button>
+        <button class="grade-nav-btn next" data-target="grad-3">Gradul III →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-3">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><circle cx="22" cy="22" r="12" fill="none" style="stroke:var(--teal)" stroke-width="1.3"/><circle cx="22" cy="22" r="6" fill="none" style="stroke:var(--gold)" stroke-width="1.3"/><circle class="pulse-core" cx="22" cy="22" r="2" style="fill:var(--gold)"/></svg><span class="grade-num">III</span><h2>Structura triadică: fizic, biosic, noetic</h2></div>
+      <p class="grade-sub">A treia treaptă a cursului</p>
+      <p>Acest grad detaliază modelul pe care se sprijină restul cursului: ființa vie nu este redusă la componenta fizică, ci este privită ca o structură pe trei niveluri, aflate în interacțiune constantă.</p>
+      <p>Modelul triadic nu este specific inforenergeticii — variante ale sale apar în numeroase tradiții spirituale și în unele curente ale bioenergeticii moderne, sub alte denumiri (corp-suflet-spirit, fizic-astral-cauzal etc.). Ce diferă, în această tradiție, este accentul pus pe interacțiunea constantă dintre cele trei niveluri, nu pe ierarhia lor: structura noetică nu este privită ca „superioară” celei fizice, ci ca aflată într-un dialog permanent cu ea.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Fiecare nivel are, în teoria transmisă de curs, propriile „legi” de funcționare. Structura fizică urmează legile fizicii clasice — e măsurabilă, cauzală, supusă entropiei. Structura biosică este descrisă ca funcționând după legi asemănătoare celor ale câmpurilor energetice, dar mai puțin rigide — capabilă de rezonanță, de transfer, de fluctuație rapidă. Structura noetică, în fine, este cea mai puțin „legiuită” dintre cele trei: sediul voinței și al liberului arbitru, capabilă să influențeze celelalte două niveluri prin intenție conștientă — ceea ce explică, în logica internă a tradiției, de ce toate tehnicile inforenergetice implică o componentă de intenție explicită, nu doar de tehnică mecanică.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Nivelul fizic — corpul material, măsurabil, supus legilor fizicii clasice.</li>
+        <li>Nivelul biosic — învelișul energetic-vital care „hrănește” și susține structura fizică.</li>
+        <li>Nivelul noetic — dimensiunea informațională, mentală și spirituală: sediul conștiinței, al voinței și al legăturii cu planul divin.</li>
+        <li>„Cordonul de argint” — legătura continuă între structura noetică și Sursă.</li>
+        <li>Interacțiunea, nu ierarhia, este ideea centrală a modelului triadic.</li>
+        <li>Intenția conștientă, la nivel noetic, este descrisă ca puntea prin care celelalte două niveluri pot fi influențate.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Observarea celor trei niveluri, pe rând, într-o singură ședință scurtă: senzații fizice, apoi stare energetică generală, apoi calitatea gândurilor și a intenției.</li>
+        <li>Respirația conștientă ca punte: exercițiu tradițional în multe practici contemplative, folosit aici pentru a „aduce” atenția de la nivelul fizic spre cel noetic.</li>
+        <li>Jurnalul triadic: trei coloane scurte, completate zilnic — o observație fizică, una energetică, una despre starea interioară.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Exercițiile de la acest grad sunt mai degrabă contemplative — respirație conștientă, rugăciune sau meditație, un scurt jurnal de observații interioare — menite să familiarizeze cursantul cu propria structură noetică înainte de a lucra asupra altora.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Completarea, timp de șapte zile consecutive, a jurnalului triadic descris mai sus — nu pentru a trage concluzii după o săptămână, ci pentru a observa dacă cele trei coloane încep să pară conectate, sau rămân independente.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-2">← Gradul II</button>
+        <button class="grade-nav-btn next" data-target="grad-4">Gradul IV →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-4">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><circle cx="13" cy="22" r="3.5" style="fill:var(--teal)"/><line x1="17" y1="22" x2="27" y2="22" class="flow-line" style="stroke:var(--teal)" stroke-width="1.4"/><circle cx="31" cy="22" r="3.5" fill="none" style="stroke:var(--teal)" stroke-width="1.4" stroke-dasharray="1.5 1.5"/></svg><span class="grade-num">IV</span><h2>Teledeterminări și puterea inforenergetică</h2></div>
+      <p class="grade-sub">A patra treaptă a cursului</p>
+      <p>Gradul IV introduce teledeterminarea — citirea informației despre un sistem aflat la distanță — și un concept central pentru gradele următoare: puterea inforenergetică, un parametru prin care se exprimă, subiectiv și orientativ, intensitatea unei stări (nu o măsurătoare fizică) sau a unei relații dintre două sisteme.</p>
+      <p>Teledeterminarea ridică, mai pregnant decât gradele anterioare, întrebarea centrală a întregii discipline: cum poate informația despre un subiect să rămână accesibilă în absența oricărui contact fizic sau senzorial direct? Materialele acestei tradiții răspund prin conceptul de câmp informațional — introdus la Concepte fundamentale — dar recunosc, totodată, că mecanismul exact rămâne, prin natura sa, dincolo de metodele de verificare disponibile în afara tradiției înseși.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Puterea inforenergetică, introdusă la acest grad, funcționează ca un fel de „volum” al semnalului: nu indică, prin ea însăși, dacă o stare este pozitivă sau negativă, ci doar cât de intens este perceput un anumit aspect al ei. Un parametru de putere ridicată poate însoți o stare de echilibru puternic, la fel de bine ca una de dezechilibru pronunțat — motiv pentru care cursul insistă ca puterea inforenergetică să fie citită întotdeauna împreună cu o a doua întrebare, calitativă (echilibru sau dezechilibru), niciodată singură.</p>
+
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 320 140" aria-hidden="true" style="width:300px;">
+          <circle cx="40" cy="70" r="22" fill="none" style="stroke:var(--gold)" stroke-width="2"/>
+          <text x="40" y="74" text-anchor="middle" style="fill:var(--gold);font-size:11px;font-family:var(--sans)">OR</text>
+          <path d="M64,70 L138,70" fill="none" style="stroke:var(--teal)" stroke-width="2" class="flow-line" stroke-linecap="round"/>
+          <rect x="140" y="52" width="36" height="36" rx="4" fill="none" style="stroke:var(--gold)" stroke-width="1.5"/>
+          <path d="M178,70 L256,70" fill="none" style="stroke:var(--ink-dim)" stroke-width="1.5" stroke-dasharray="2 4"/>
+          <circle cx="280" cy="70" r="22" fill="none" style="stroke:var(--ink-dim)" stroke-width="2" stroke-dasharray="2 4"/>
+        </svg>
+        <div class="diagram-legend">
+          <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--gold)"></span>Operator (OR)</div>
+          <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--teal)"></span>Canal activ de citire</div>
+          <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--ink-dim)"></span>Subiect, la distanță</div>
+        </div>
+        <p class="diagram-caption">Operatorul citește reprezentantul (pătrat) — nu subiectul însuși, absent fizic (cerc punctat din dreapta).</p>
+      </div>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Teledeterminarea: lucrul pe o fotografie, un nume scris sau o hartă — nu pe prezența fizică a subiectului.</li>
+        <li>Puterea inforenergetică: un parametru relativ, folosit pentru a compara stări sau relații.</li>
+        <li>Puterea nu indică, prin ea însăși, dacă o stare e pozitivă sau negativă — se citește mereu alături de o întrebare calitativă.</li>
+        <li>Diferența dintre „a citi” o informație și „a interveni” asupra ei.</li>
+        <li>Convențiile de reprezentant: fotografie, nume scris, hartă — fiecare cu reguli proprii de lucru.</li>
+        <li>Rolul consimțământului: orice lucru la distanță asupra unei persoane presupune, în mod normal, acordul acesteia.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Alegerea reprezentantului: fotografie recentă, nume complet scris de mână, sau o hartă pentru locuri — fiecare cu convenții proprii de lucru, transmise în curs.</li>
+        <li>Scala de putere: o convenție numerică (de exemplu, de la 0 la 10) folosită pentru a exprima intensitatea unei citiri, calibrată individual de fiecare operator.</li>
+        <li>Protocolul de consimțământ: formularea explicită, înaintea lucrului, a întrebării „am acordul acestei persoane pentru citirea de față?” — și oprirea imediată dacă răspunsul e negativ sau incert.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Un exercițiu clasic de gradul IV este teledeterminarea pe o fotografie a unui loc cunoscut, urmată de verificarea prin vizitarea efectivă a locului — pentru a compara citirea la distanță cu observația directă.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Notarea, înainte de verificare, atât a citirii calitative (echilibru/dezechilibru), cât și a puterii inforenergetice asociate — pentru a observa, în timp, dacă cele două tind să varieze împreună sau independent.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-3">← Gradul III</button>
+        <button class="grade-nav-btn next" data-target="grad-5">Gradul V →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-5">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><line x1="22" y1="12" x2="22" y2="30" style="stroke:var(--teal)" stroke-width="1.4"/><line x1="13" y1="17" x2="31" y2="17" style="stroke:var(--teal)" stroke-width="1.4"/><circle class="icon-pulse" cx="13" cy="21" r="2.4" fill="none" style="stroke:var(--teal)" stroke-width="1.2"/><circle cx="31" cy="21" r="2.4" fill="none" style="stroke:var(--teal)" stroke-width="1.2"/></svg><span class="grade-num">V</span><h2>Terapii inforenergetice neconvenționale</h2></div>
+      <p class="grade-sub">A cincea treaptă a cursului</p>
+      <p>La acest grad, cursul trece de la diagnostic și optimizare la ideea de terapie — un set de tehnici prin care operatorul încearcă să sprijine, la nivel informațional-energetic, procesele proprii de reechilibrare ale organismului.</p>
+      <p>Trecerea de la diagnostic la terapie schimbă și miza etică a practicii: o citire greșită are consecințe limitate, dar o intervenție greșită — sau una prezentată drept mai mult decât este — poate întârzia o persoană să caute ajutorul medical de care are nevoie. Din acest motiv, gradul V este, dintre toate, cel mai încărcat de precauții explicite în materialele consultate.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Terapia inforenergetică nu este descrisă, în sursele acestei tradiții, ca o formă de intervenție directă asupra bolii, ci ca un sprijin adus proceselor de autoreglare pe care organismul le are deja. Ideea centrală este că un dezechilibru informațional-energetic poate, teoretic, împiedica sau încetini procesele naturale de reechilibrare — iar terapia încearcă să înlăture acest obstacol, nu să înlocuiască vindecarea propriu-zisă, care rămâne atributul organismului însuși (sau, în formulările cu componentă religioasă ale tradiției, al harului divin lucrând prin organism).</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Terapia inforenergetică este descrisă, în această tradiție, ca un sprijin complementar, nu ca un tratament de sine stătător.</li>
+        <li>Ideea centrală: dezechilibrul informațional poate încetini procesele naturale de autoreglare, iar terapia încearcă să înlăture acest obstacol.</li>
+        <li>Tehnici discutate în curs: proiectarea intenției, lucrul cu simboluri, curățarea informațională a spațiului.</li>
+        <li>Materialele insistă asupra limitelor metodei și a necesității unui consult medical pentru orice problemă de sănătate.</li>
+        <li>Diferența dintre a „susține” un proces de reechilibrare și a „garanta” un rezultat — cursurile serioase evită a doua formulare.</li>
+        <li>Închiderea corectă a sesiunii este privită ca parte integrantă a terapiei, nu ca un pas opțional.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Proiectarea intenției: formularea clară, înainte de sesiune, a scopului („sprijin pentru reechilibrare”, niciodată „vindecare garantată”).</li>
+        <li>Lucrul cu simboluri: folosirea unor reprezentări grafice sau verbale convenite, ca „ancoră” pentru intenție.</li>
+        <li>Curățarea informațională a spațiului de lucru, înaintea și după fiecare sesiune.</li>
+        <li>Închiderea sesiunii: un pas obligatoriu, detaliat pe larg la gradul VI, fără de care sesiunea e considerată, în această tradiție, incompletă.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Un exercițiu descris în această tradiție este ținerea unui scurt jurnal de observații înainte și după o sesiune de lucru, pentru a compara — nu pentru a înlocui — evoluția reală, urmărită și de un medic.</p>
+      </div>
+      <div class="note">
+        <div class="note-label">De reținut</div>
+        <p>Materialele consultate sunt explicite: orice ameliorare resimțită după o sesiune de terapie inforenergetică se discută cu medicul curant, nu se folosește ca motiv de întrerupere sau amânare a unui tratament prescris.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-4">← Gradul IV</button>
+        <button class="grade-nav-btn next" data-target="grad-6">Gradul VI →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-6">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><path class="icon-pulse" d="M22,10 L31,14 V22 C31,28 27,31 22,33 C17,31 13,28 13,22 V14 Z" fill="none" style="stroke:var(--teal)" stroke-width="1.4" stroke-linejoin="round"/></svg><span class="grade-num">VI</span><h2>Protecție energetică și curățare informațională</h2></div>
+      <p class="grade-sub">A șasea treaptă a cursului</p>
+      <p>Gradul VI se ocupă de „igiena” practicii: metode prin care operatorul își protejează propria structură biosică și noetică în timpul lucrului, și prin care „curăță” informația reziduală dintr-un spațiu, obiect sau relație.</p>
+      <p>Protecția nu este tratată, în materialele acestei tradiții, ca o tehnică separată de restul practicii, ci ca o condiție care o însoțește constant — la fel cum un instrument medical se dezinfectează înainte și după fiecare utilizare, indiferent de procedura efectuată. Absența ei nu produce, teoretic, un rezultat greșit, ci un cost cumulativ, resimțit de operator în timp.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Ideea de „preluare” a informației sau a energiei unui subiect lucrat este centrală acestui grad: teoria susține că, în absența unei protecții adecvate, o parte din starea investigată sau tratată se poate „lipi” temporar de structura biosică a operatorului. Fenomenul este descris ca invers proporțional cu experiența — un operator la început de drum e mai expus decât unul care a exersat, ani la rând, tehnicile de închidere.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Protecția energetică proprie — o condiție prealabilă oricărui lucru asupra altcuiva.</li>
+        <li>Ideea de „preluare” temporară a informației sau energiei subiectului lucrat, în absența protecției.</li>
+        <li>Tehnici de „închidere” a unei sesiuni de lucru.</li>
+        <li>Curățarea informațională a unui spațiu — aerisire, lumină, ordine, alături de tehnicile specifice.</li>
+        <li>Expunerea este descrisă ca invers proporțională cu experiența operatorului.</li>
+        <li>Recunoașterea oboselii sau a suprasolicitării ca semnal de a întrerupe lucrul, nu de a-l forța.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Vizualizarea unei „bariere” — o imagine mentală (o sferă de lumină, un strat protector) menținută pe durata lucrului.</li>
+        <li>Formula de închidere: o propoziție scurtă, repetată constant, care marchează sfârșitul ferm al unei sesiuni.</li>
+        <li>Curățarea spațiului: aerisire, lumină naturală, ordine fizică, alături de tehnicile specifice.</li>
+        <li>Pauza obligatorie între două sesiuni consecutive, indiferent de presiunea de timp.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Un ritual scurt de „închidere” — recunoștință, o formulă de încheiere, o pauză conștientă — la finalul fiecărei sesiuni de exersare, indiferent cât de scurtă a fost aceasta.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Observarea propriului nivel de energie înainte și după o sesiune de exersare, pe o scală simplă de la 1 la 5 — pentru a identifica, în timp, tiparul personal de oboseală și pragul la care pauza devine necesară.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-5">← Gradul V</button>
+        <button class="grade-nav-btn next" data-target="grad-7">Gradul VII →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-7">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><circle class="pulse-core" cx="22" cy="22" r="5" style="fill:var(--teal)" fill-opacity="0.85"/><g style="stroke:var(--teal)" stroke-width="1.3" stroke-linecap="round"><line x1="22" y1="9" x2="22" y2="13"/><line x1="22" y1="31" x2="22" y2="35"/><line x1="9" y1="22" x2="13" y2="22"/><line x1="31" y1="22" x2="35" y2="22"/><line x1="13" y1="13" x2="15.8" y2="15.8"/><line x1="28.2" y1="28.2" x2="31" y2="31"/><line x1="13" y1="31" x2="15.8" y2="28.2"/><line x1="28.2" y1="15.8" x2="31" y2="13"/></g></svg><span class="grade-num">VII</span><h2>Cunoașterea divină și dimensiunea spirituală</h2></div>
+      <p class="grade-sub">A șaptea treaptă a cursului</p>
+      <p>Multe școli de inforenergetică din România își asumă explicit o rădăcină creștin-ortodoxă, iar gradul VII readuce în prim-plan această dimensiune: practica este privită nu ca un scop în sine, ci ca o cale de apropiere de ceea ce tradiția numește Cunoaștere Divină.</p>
+      <p>Această dimensiune nu este prezentată, în materialele consultate, ca un adaos opțional, ci ca sursa ultimă a legitimității întregii practici: fără componenta spirituală, tehnicile inforenergetice ar rămâne, în logica internă a tradiției, simple manipulări fără sens sau protecție reală. Gradul VII readuce explicit această idee în prim-plan, după șase grade axate mai ales pe tehnică.</p>
+
+      <h3>Context teoretic</h3>
+      <p>„Cunoașterea Divină”, așa cum apare în materialele acestei tradiții, nu este echivalentă cu doctrina religioasă instituțională, deși se sprijină pe ea. Este descrisă mai degrabă ca o experiență personală de apropiere, cultivată prin practică susținută — rugăciune, recunoștință, smerenie — și confirmată, treptat, prin calitatea intuițiilor și a discernământului operatorului, nu printr-o revelație bruscă.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Rugăciunea și recunoștința ca parte integrantă a metodei, nu doar ca formalitate.</li>
+        <li>Ideea de „protecție divină” ca sprijin invocat înaintea oricărei sesiuni de lucru.</li>
+        <li>Cunoașterea Divină e descrisă ca experiență cultivată prin practică, nu ca revelație bruscă.</li>
+        <li>Smerenia și limitele cunoașterii umane — temă recurentă în materialele acestei tradiții.</li>
+        <li>Practicile spirituale suplimentare (post, disciplină) rămân opționale și subordonate sfatului unui duhovnic sau medic.</li>
+        <li>Distincția, subliniată în curs, între cunoașterea inforenergetică și doctrina religioasă propriu-zisă, pe care disciplina nu pretinde să o înlocuiască.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Invocarea protecției divine înaintea oricărei sesiuni de lucru — o formulă scurtă, aleasă liber.</li>
+        <li>Recunoștința ca practică regulată, nu doar ca reacție la un rezultat pozitiv.</li>
+        <li>Postul sau alte forme tradiționale de disciplină spirituală — menționate ca opționale, niciodată impuse, și întotdeauna subordonate sfatului unui duhovnic sau medic, acolo unde privesc alimentația sau sănătatea.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Un moment scurt de recunoștință sau rugăciune, ales liber de fiecare practicant potrivit propriilor convingeri, înainte și după o sesiune de exersare.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Un jurnal spiritual scurt, separat de cel de practică tehnică, în care cursantul notează, fără structură impusă, momentele în care a resimțit o legătură mai puternică cu ceea ce tradiția numește Sursă.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-6">← Gradul VI</button>
+        <button class="grade-nav-btn next" data-target="grad-8">Gradul VIII →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-8">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><path d="M22,14 V32 M22,14 C17,12 13,13 10,15 V29 C13,27 17,26 22,28 M22,14 C27,12 31,13 34,15 V29 C31,27 27,26 22,28" fill="none" style="stroke:var(--teal)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/><circle class="pulse-core" cx="22" cy="14" r="1.8" style="fill:var(--gold)"/></svg><span class="grade-num">VIII</span><h2>Etică, discernământ și responsabilitate</h2></div>
+      <p class="grade-sub">A opta treaptă a cursului</p>
+      <p>Codul etic transmis prin cursurile de inforenergetică este, poate, elementul cel mai constant al tradiției: aproape toate sursele insistă asupra acelorași principii, indiferent de școală.</p>
+      <p>Constanța acestui cod, regăsit aproape identic în toate sursele consultate — indiferent de școala sau organizația care predă cursul — sugerează că el precede, istoric, fragmentarea instituțională a domeniului: este, posibil, elementul cel mai puțin disputat al întregii tradiții, exact acolo unde disputele despre „autenticitate” sunt cele mai frecvente.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Cele patru principii ale codului deontologic nu funcționează izolat, ci se sprijină reciproc. Absența câștigului material (primul principiu) elimină un motiv evident de a exagera rezultatele. Prioritatea binelui celorlalți (al doilea) previne folosirea practicii în scop personal, egoist. Prudența în anunțarea evenimentelor negative (al treilea) recunoaște explicit limitele metodei — o formă de smerenie metodologică, reluată apoi la gradul XI, sub forma discernământului avansat. Recunoștința (al patrulea) închide ciclul, situând întreaga practică într-un raport de primire, nu de control.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Practica nu urmărește câștig material.</li>
+        <li>Binele celorlalți este urmărit înaintea binelui propriu.</li>
+        <li>Evenimentele negative se anunță sau se previn doar cu mare prudență, după investigație atentă.</li>
+        <li>Recunoștința față de sprijinul primit se exprimă după fiecare sesiune de lucru.</li>
+        <li>Cele patru principii se sprijină reciproc, nu funcționează izolat.</li>
+        <li>Codul rămâne aproape identic între școli rivale — posibil cel mai puțin disputat element al tradiției.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Jurnalul de discernământ: o reflecție scrisă, la finalul fiecărei sesiuni, asupra respectării celor patru principii.</li>
+        <li>Studiul de caz ipotetic: analiza unor situații-limită (de exemplu, „ce faci dacă o citire sugerează un pericol iminent pentru altcineva?”), fără a le pune în practică.</li>
+        <li>Recitirea periodică a codului — recomandată nu doar la începutul cursului, ci la fiecare grad ulterior.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>O reflecție scrisă, la finalul fiecărei sesiuni de exersare, asupra respectării acestor patru principii — un „jurnal de discernământ” recomandat de majoritatea cursurilor din această tradiție.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Redactarea, în scris, a răspunsului propriu la o situație-limită ipotetică — de exemplu, o citire care sugerează, fără certitudine, un risc pentru altcineva — urmată de o reflecție despre cum ar reacționa un operator experimentat, respectând principiul prudenței.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-7">← Gradul VII</button>
+        <button class="grade-nav-btn next" data-target="grad-9">Gradul IX →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-9">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><line x1="22" y1="13" x2="14" y2="29" style="stroke:var(--teal)" stroke-width="1.2"/><line x1="22" y1="13" x2="30" y2="29" style="stroke:var(--teal)" stroke-width="1.2"/><line x1="14" y1="29" x2="30" y2="29" style="stroke:var(--teal)" stroke-width="1.2"/><circle class="pulse-core" cx="22" cy="13" r="2.6" style="fill:var(--teal)"/><circle cx="14" cy="29" r="2.6" style="fill:var(--teal)"/><circle cx="30" cy="29" r="2.6" style="fill:var(--teal)"/></svg><span class="grade-num">IX</span><h2>Sisteme complexe și lucrul cu grupuri</h2></div>
+      <p class="grade-sub">A noua treaptă a cursului</p>
+      <p>Gradul IX extinde percepția de la sistemele individuale spre grupuri: familii, echipe, organizații. Teoria propune ideea unui „câmp inforenergetic colectiv” — starea de ansamblu a unui grup, diferită de simpla însumare a stărilor individuale ale membrilor săi.</p>
+      <p>Extinderea de la individ la grup nu este o simplă schimbare de scară, ci una calitativă: teoria susține că un grup dezvoltă, prin interacțiunea repetată a membrilor săi, o stare proprie, care nu poate fi dedusă complet din stările individuale — la fel cum comportamentul unei mulțimi nu poate fi complet prezis din comportamentul fiecărui individ luat separat.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Conceptul de „câmp inforenergetic colectiv” împrumută, informal, o idee prezentă și în alte discipline — de la psihologia socială la teoria sistemelor — conform căreia grupurile au proprietăți emergente, care apar doar la nivelul ansamblului. În formularea acestei tradiții, un grup „coerent” tinde să aibă un câmp colectiv mai puternic și mai stabil decât unul „fragmentat”, chiar dacă membrii individuali au stări asemănătoare între cele două cazuri.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Diferența dintre o citire individuală și o citire de grup.</li>
+        <li>Grupuri „coerente” față de grupuri „fragmentate” — un vocabular orientativ, nu un verdict.</li>
+        <li>Ideea de proprietăți emergente, care apar doar la nivelul ansamblului, nu al indivizilor separat.</li>
+        <li>Limitele stricte ale metodei atunci când implică mai multe persoane: același consimțământ cerut și la gradul IV.</li>
+        <li>Rolul operatorului într-un grup: observator antrenat, nu arbitru al relațiilor dintre membri.</li>
+        <li>Consimțământul colectiv, nu doar cel al solicitantului, este cerut de majoritatea materialelor consultate.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Citirea de ansamblu: o singură întrebare despre starea generală a grupului, fără a trece prin fiecare membru individual.</li>
+        <li>Compararea coerenței: evaluarea relativă a două grupuri cunoscute, cu structuri diferite.</li>
+        <li>Respectarea strictă a consimțământului colectiv: lucrul asupra unui grup presupune acordul reprezentantului sau al fiecărui membru, nu doar al persoanei care solicită citirea.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Compararea „coerenței” resimțite în două echipe sau formații cunoscute, cu roluri și dinamici diferite — un exercițiu relativ, nu o evaluare a vreunei persoane anume.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Observarea propriei „citiri” a unui grup din care cursantul face parte (o echipă, o familie), comparată — cu prudență și fără a trage concluzii ferme — cu felul în care ceilalți membri descriu, în cuvinte obișnuite, aceeași dinamică.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-8">← Gradul VIII</button>
+        <button class="grade-nav-btn next" data-target="grad-10">Gradul X →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-10">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><circle class="icon-pulse" cx="22" cy="22" r="10" fill="none" style="stroke:var(--teal)" stroke-width="1.3"/><line x1="22" y1="22" x2="22" y2="15" style="stroke:var(--teal)" stroke-width="1.3" stroke-linecap="round"/><line x1="22" y1="22" x2="27" y2="24" style="stroke:var(--teal)" stroke-width="1.3" stroke-linecap="round"/></svg><span class="grade-num">X</span><h2>Dimensiunea temporală: amprente și tipare</h2></div>
+      <p class="grade-sub">A zecea treaptă a cursului</p>
+      <p>Gradul X introduce ideea că informația nu există doar în spațiu, ci poartă și o componentă temporală: un loc sau un sistem poate păstra o „amprentă” a unor evenimente trecute, la fel cum poate purta, teoretic, tendințe orientate spre viitor — deși teoria insistă asupra caracterului probabilistic, niciodată determinist, al unor asemenea citiri.</p>
+      <p>Introducerea timpului ca a doua dimensiune a informației — alături de spațiu — ridică mize etice suplimentare față de gradele anterioare: o citire greșită despre un loc poate fi verificată direct, dar una despre viitor nu poate fi verificată decât ulterior, ceea ce face tentația fatalismului mult mai greu de controlat.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Materialele acestei tradiții disting explicit între „amprentă” (o urmă lăsată de trecut, teoretic mai stabilă) și „tendință” (o proiecție spre viitor, teoretic mult mai instabilă și dependentă de decizii ulterioare, umane sau nu). Doar prima este tratată cu un grad rezonabil de încredere metodologică; a doua rămâne, explicit, un exercițiu speculativ, util cel mult ca orientare generală, niciodată ca certitudine.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>„Amprenta informațională” — urma reziduală, teoretizată, a unor evenimente semnificative.</li>
+        <li>Diferența netă între o „tendință” probabilistă și o „predicție” fermă — a doua este descurajată explicit.</li>
+        <li>Riscul fatalismului: cursul avertizează asupra pericolului de a trata orice citire orientată spre viitor ca pe un destin fix.</li>
+        <li>Amprentele (trecut) sunt tratate cu mai multă încredere metodologică decât tendințele (viitor).</li>
+        <li>Verificarea încrucișată rămâne regula: o citire temporală se compară cu surse istorice sau documentare.</li>
+        <li>Exercițiul de a NU răspunde la întrebări despre viitor este el însuși o disciplină predată explicit.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Citirea amprentei: o întrebare formulată strict la timpul trecut („ce s-a întâmplat aici”), niciodată la viitor.</li>
+        <li>Verificarea istorică: compararea citirii cu surse documentare — arhive, mărturii, istoricul cunoscut al unui loc.</li>
+        <li>Recunoașterea limitei: exercițiul explicit de a nu răspunde la o întrebare despre viitor, atunci când cursul o cere, ca disciplină a discernământului.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Compararea „amprentei” resimțite într-o clădire veche, cu istorie documentată, față de una nou construită — exercițiu care revine la principiul verificării obiective de la gradul I, aplicat acum dimensiunii temporale.</p>
+      </div>
+      <div class="note">
+        <div class="note-label">De reținut</div>
+        <p>Materialele consultate recomandă evitarea oricărei formulări ferme despre evenimente viitoare, chiar și în exercițiile de curs — inclusiv despre propria persoană a cursantului — tocmai pentru a preveni obișnuința cu un limbaj predictiv pe care gradul îl descurajează explicit.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-9">← Gradul IX</button>
+        <button class="grade-nav-btn next" data-target="grad-11">Gradul XI →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-11">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><path d="M9,22 C13,15 31,15 35,22 C31,29 13,29 9,22 Z" fill="none" style="stroke:var(--teal)" stroke-width="1.3" stroke-linejoin="round"/><circle class="pulse-core" cx="22" cy="22" r="3.6" fill="none" style="stroke:var(--teal)" stroke-width="1.3"/></svg><span class="grade-num">XI</span><h2>Discernământ avansat: semnal și proiecție</h2></div>
+      <p class="grade-sub">A unsprezecea treaptă a cursului</p>
+      <p>Cu cât un operator avansează, cu atât crește riscul de a confunda o percepție reală cu propriile așteptări, temeri sau dorințe. Gradul XI tratează exact această problemă: cum se separă semnalul autentic de proiecția proprie.</p>
+      <p>Acest grad este, în multe privințe, o revenire critică asupra tuturor gradelor anterioare: fiecare tehnică învățată până acum poate fi afectată de proiecție, iar un operator care nu a dezvoltat acest discernământ riscă să confirme, an de an, propriile așteptări, fără să realizeze că nu a citit niciodată un semnal independent de ele.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Proiecția nu este tratată, în materialele acestei tradiții, ca un eșec moral sau ca o lipsă de talent, ci ca un fenomen aproape inevitabil, pe care doar disciplina metodologică — nu buna intenție — îl poate limita. Analogia folosită frecvent este cea a unui instrument de măsură care trebuie recalibrat periodic: chiar și un operator experimentat poate „deriva” treptat spre citiri care confirmă mai degrabă propriile convingeri decât realitatea investigată, dacă nu își testează constant acuratețea.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Proiecția — tendința inconștientă de a „citi” exact ceea ce operatorul se așteaptă sau își dorește să găsească.</li>
+        <li>Testarea „oarbă” simplă și, la un nivel mai riguros, testarea oarbă dublă.</li>
+        <li>Jurnalul de calibrare pe termen lung — comparat, periodic, cu rezultate verificabile.</li>
+        <li>Lucrul în pereche, cu protocol strict, ca metodă de verificare încrucișată.</li>
+        <li>Proiecția e tratată ca fenomen aproape inevitabil, limitat doar prin disciplină metodologică susținută.</li>
+        <li>Recalibrarea periodică e descrisă ca necesară chiar și pentru operatorii experimentați.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Testarea oarbă simplă: o singură variabilă necunoscută, verificabilă imediat.</li>
+        <li>Testarea oarbă dublă: nici cursantul, nici cel care pregătește testul nu cunosc răspunsul corect în momentul citirii — protocol mai riguros, împrumutat, informal, din metodologia testării științifice.</li>
+        <li>Jurnalul de calibrare: un tabel simplu, cu procentul de citiri corecte, urmărit în timp, pe categorii de întrebări.</li>
+        <li>Lucrul în pereche cu protocol strict: cei doi operatori nu discută răspunsul așteptat înainte de a nota, separat, propriile citiri.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Alcătuirea unui set propriu de „teste oarbe” — obiecte sau plicuri sigilate cu o caracteristică știută doar de altcineva — și compararea citirilor cu realitatea abia după ce au fost notate în scris.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Ținerea unui jurnal de calibrare timp de o lună, cu procentul propriu de citiri corecte pe teste oarbe — nu pentru a obține un scor perfect, ci pentru a observa dacă acuratețea variază în funcție de tipul de întrebare sau de starea proprie din ziua respectivă.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-10">← Gradul X</button>
+        <button class="grade-nav-btn next" data-target="grad-12">Gradul XII →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-12">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><g style="stroke:var(--teal)" stroke-width="1.1"><line x1="14" y1="10" x2="14" y2="34"/><line x1="22" y1="10" x2="22" y2="34"/><line x1="30" y1="10" x2="30" y2="34"/><line x1="10" y1="14" x2="34" y2="14"/><line x1="10" y1="22" x2="34" y2="22"/><line x1="10" y1="30" x2="34" y2="30"/></g><circle class="pulse-core" cx="22" cy="22" r="2.4" style="fill:var(--gold)"/></svg><span class="grade-num">XII</span><h2>Rețele și geopatii: legătura cu geobiologia</h2></div>
+      <p class="grade-sub">A douăsprezecea treaptă a cursului</p>
+      <p>Gradul XII apropie inforenergetica de geobiologie: rețelele de tip Hartmann sau Curry și alte zone considerate, în literatura de profil, „geopatice” — cu un posibil impact asupra echilibrului sistemelor vii care petrec timp îndelungat în acele zone.</p>
+      <p>Spre deosebire de gradele anterioare, centrate pe sisteme vii individuale sau colective, gradul XII întoarce atenția spre mediul fizic însuși — ideea că spațiul locuit poartă, el însuși, o structură energetică ce poate favoriza sau îngreuna echilibrul celor care petrec timp îndelungat în el.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Rețelele de tip Hartmann și Curry, împrumutate din radiestezie și din geobiologia neconvențională mai largă, sunt descrise ca grile de intersecții energetice care acoperă suprafața pământului la intervale relativ regulate. Teoria susține că expunerea îndelungată la un nod al acestor rețele — mai ales în timpul somnului, când corpul e cel mai puțin activ — poate contribui, alături de alți factori, la o stare de dezechilibru persistentă. Este important de notat, așa cum fac și materialele mai atente ale acestei tradiții, că afirmația rămâne o ipoteză de lucru internă domeniului, fără confirmare independentă în literatura științifică.</p>
+
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 240 180" aria-hidden="true" style="width:230px;">
+          <g style="stroke:var(--border-strong)" stroke-width="1">
+            <line x1="20" y1="0" x2="20" y2="180"/><line x1="68" y1="0" x2="68" y2="180"/>
+            <line x1="116" y1="0" x2="116" y2="180"/><line x1="164" y1="0" x2="164" y2="180"/>
+            <line x1="212" y1="0" x2="212" y2="180"/>
+            <line x1="0" y1="18" x2="240" y2="18"/><line x1="0" y1="54" x2="240" y2="54"/>
+            <line x1="0" y1="90" x2="240" y2="90"/><line x1="0" y1="126" x2="240" y2="126"/>
+            <line x1="0" y1="162" x2="240" y2="162"/>
+          </g>
+          <circle class="pulse-core" cx="116" cy="90" r="7" style="fill:var(--gold)"/>
+          <circle cx="68" cy="54" r="3" style="fill:var(--teal)" fill-opacity="0.6"/>
+          <circle cx="164" cy="126" r="3" style="fill:var(--teal)" fill-opacity="0.6"/>
+          <circle cx="164" cy="54" r="3" style="fill:var(--teal)" fill-opacity="0.6"/>
+          <circle cx="68" cy="126" r="3" style="fill:var(--teal)" fill-opacity="0.6"/>
+        </svg>
+        <div class="diagram-legend">
+          <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--gold)"></span>Nod „activ” (exemplu)</div>
+          <div class="diagram-legend-item"><span class="diagram-legend-dot" style="background:var(--teal)"></span>Alte intersecții</div>
+        </div>
+        <p class="diagram-caption">O grilă teoretică de intersecții — unele noduri sunt considerate, în această tradiție, mai relevante decât altele.</p>
+      </div>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Rețelele geobiologice — un vocabular împrumutat din radiestezie, reluat din perspectiva impactului lor inforenergetic.</li>
+        <li>Diferența dintre o zonă „neutră” și una considerată „geopatică” — mereu ca ipoteză de lucru, nu ca certitudine științifică.</li>
+        <li>Expunerea îndelungată, mai ales în somn, este considerată factorul cel mai relevant.</li>
+        <li>Aplicații tipice: repoziționarea unui pat sau a unui birou, nu modificări structurale ale clădirii.</li>
+        <li>Afirmațiile domeniului rămân, explicit, fără confirmare independentă în literatura științifică.</li>
+        <li>Trimitere directă la aplicația RADIESTEZIA din aceeași colecție, pentru tehnica detaliată de identificare a acestor rețele.</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Cartografierea unui spațiu: marcarea, pe un plan simplu, a liniilor și nodurilor identificate.</li>
+        <li>Testarea prin comparație: citirea „rezonanței” resimțite în puncte diferite ale aceleiași încăperi.</li>
+        <li>Repoziționarea minimă: mutarea unui pat sau a unui birou cu o distanță mică, urmată de o perioadă de observație, nu de o concluzie imediată.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Cartografierea unui spațiu cunoscut (locuință, grădină), notând elementele deja știute — conducte, structuri, orientare — ca exercițiu de lucru pe hartă, în continuarea celui de la gradul I.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Comparația, pe o perioadă de câteva săptămâni, a calității somnului resimțite în două poziții diferite ale patului în aceeași cameră — un exercițiu personal de observație, nu o metodă de diagnostic pentru altcineva.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-11">← Gradul XI</button>
+        <button class="grade-nav-btn next" data-target="grad-13">Gradul XIII →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="grad-13">
+      <hr class="eyebrow-rule">
+      <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-opacity="0.5" stroke-width="1.3"/><circle class="pulse-core" cx="22" cy="12" r="2.6" style="fill:var(--teal)"/><path d="M22,14 V20 M22,20 L13,30 M22,20 L31,30" fill="none" style="stroke:var(--teal)" stroke-width="1.3" stroke-linecap="round"/><circle cx="13" cy="32" r="2.2" fill="none" style="stroke:var(--teal)" stroke-width="1.2"/><circle cx="31" cy="32" r="2.2" fill="none" style="stroke:var(--teal)" stroke-width="1.2"/></svg><span class="grade-num">XIII</span><h2>Practica matură: cazuri dificile, mentorat, documentare</h2></div>
+      <p class="grade-sub">A treisprezecea și ultima treaptă numerotată</p>
+      <p>Ultimul grad numerotat al cursului privește practica unui operator cu experiență: cum gestionează cazurile dificile, cum transmite mai departe ce a învățat și cum își documentează, onest, propriul parcurs.</p>
+      <p>Cele trei teme ale gradului — cazurile dificile, mentoratul, documentarea — au un fir comun: toate privesc responsabilitatea unui operator care nu mai lucrează izolat, ci într-o rețea de relații — cu subiecții cercetați, cu cursanții pe care îi îndrumă, și cu propria evidență, ținută pe termen lung.</p>
+
+      <h3>Context teoretic</h3>
+      <p>Materialele acestei tradiții descriu maturizarea unui operator nu ca acumulare de tehnici noi — acestea sunt, în mare parte, epuizate până la acest grad — ci ca dezvoltarea unui discernământ despre limitele proprii: când un caz depășește cadrul practicii, când un cursant e pregătit pentru autonomie, când o citire proprie merită încredere și când nu. Este, în multe privințe, o aplicare practică, la scară largă, a discernământului dezvoltat tehnic la gradul XI și etic la gradul VIII.</p>
+
+      <h3>Puncte-cheie</h3>
+      <ul class="key-points">
+        <li>Recunoașterea semnelor de suprasolicitare cumulată și redirecționarea către un specialist potrivit.</li>
+        <li>Mentoratul cursanților aflați la grade inferioare — cu grijă pentru autonomia lor.</li>
+        <li>Un jurnal de practică structurat, ca instrument de autoevaluare onestă pe termen lung.</li>
+        <li>Onestitatea intelectuală față de perspectiva științifică — disciplina nu a fost validată prin metodele științei convenționale.</li>
+        <li>Maturizarea e descrisă mai ales ca discernământ despre limitele proprii, nu ca tehnici noi.</li>
+        <li>Cele trei teme ale gradului aplică, la scară practică, discernământul tehnic (gradul XI) și etic (gradul VIII).</li>
+      </ul>
+
+      <h3>Tehnici și exerciții</h3>
+      <ul class="key-points">
+        <li>Protocolul de redirecționare: o listă personală, scrisă, cu semnele care indică necesitatea unui specialist extern.</li>
+        <li>Mentoratul graduat: însoțirea unui cursant la gradele inferioare, cu accent pe întrebări, nu pe răspunsuri gata oferite.</li>
+        <li>Jurnalul de practică pe termen lung: patru coloane fixe — dată, context, citire, verificare ulterioară.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-label">Aplicație practică</div>
+        <p>Redactarea unei liste personale, scurte, cu semnele care indică unui operator că un caz trebuie redirecționat către un specialist — primul rând al unui jurnal de practică ținut, de aici înainte, pe termen lung.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">Exercițiu suplimentar</div>
+        <p>Alegerea, dacă există ocazia, a unui singur cursant de gradul I sau II căruia să i se ofere, informal, câteva ședințe de îndrumare — nu pentru a preda tehnici noi, ci pentru a exersa arta de a pune întrebările potrivite.</p>
+      </div>
+
+      <div class="grade-nav">
+        <button class="grade-nav-btn" data-target="grad-12">← Gradul XII</button>
+        <button class="grade-nav-btn next" data-target="ios">IOS →</button>
+      </div>
+    </section>
+
+    <section class="content-section" id="ios">
+      <div class="ios-panel">
+        <hr class="eyebrow-rule">
+        <div class="grade-header"><svg class="grade-icon" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" style="stroke:var(--gold)" stroke-width="1.6"/><path class="pulse-core" d="M22,9 L25.5,18 L35,18 L27.2,23.8 L30.2,33 L22,27.4 L13.8,33 L16.8,23.8 L9,18 L18.5,18 Z" fill="none" style="stroke:var(--gold)" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="grade-num">IOS</span><h2>Nivelul suprem</h2></div>
+        <p class="grade-sub">Dincolo de gradele numerotate</p>
+        <p>Spre deosebire de gradele I–XIII, care se parcurg individual, IOS nu este pur și simplu un grad următor, numerotat. Este o recunoaștere — venită din partea unei comunități de practicieni, nu dintr-o autoevaluare — care încununează o practică susținută ani la rând, integrată cu discernământ și responsabilitate față de întreaga tradiție.</p>
+        <p>Materialele consultate în cercetarea acestui curs folosesc termenul „IOS” consecvent — atât ca nume al nivelului suprem, cât și ca titlu purtat, după nume, de absolvenții care l-au atins („Gr. IOS”) — dar nicio sursă publică identificată nu explică explicit ce anume reprezintă cele trei litere. Cursul de față redă termenul așa cum apare el, fără a specula asupra unei expansii neconfirmate: acolo unde tradiția însăși nu face public acest detaliu, cel mai onest răspuns rămâne „nu se știe, din sursele disponibile”.</p>
+
+        <h3>Un titlu, nu doar un grad</h3>
+        <p>Diferența dintre IOS și gradele I–XIII nu este doar de numerotare. Fiecare grad numerotat se încheie, teoretic, cu absolvirea unui curs — participare, exersare, eventual o evaluare. IOS, în schimb, este descris ca o recunoaștere colectivă, acordată de comunitatea de practicieni mai degrabă decât de o singură instituție care predă un curs și emite o diplomă. Acest lucru explică, parțial, de ce materialele consultate nu detaliază un „curriculum” specific pentru IOS, așa cum fac pentru fiecare dintre cele treisprezece grade anterioare: nu există, aparent, o programă de predat, ci doar un prag de recunoscut.</p>
+
+        <h3>Ce presupune, în practică</h3>
+        <ul class="key-points">
+          <li>O practică regulată, susținută ani la rând, nu doar cunoștințe teoretice acumulate.</li>
+          <li>Integrarea celor treisprezece grade într-o abordare personală, coerentă.</li>
+          <li>Un rol activ în comunitatea de practicieni — mentorat, documentare, uneori predare.</li>
+          <li>Responsabilitate față de integritatea tradiției, dincolo de propria practică individuală.</li>
+        </ul>
+
+        <h3>Puncte-cheie</h3>
+        <ul class="key-points">
+          <li>Recunoașterea vine din partea altora, prin experiență directă — niciun curs, oricât de detaliat, nu o poate acorda singur.</li>
+          <li>Presupune integrarea, cu smerenie, a tuturor gradelor parcurse — o practică regulată, susținută în timp, nu doar cunoștințe acumulate.</li>
+          <li>Aduce o răspundere care depășește practica proprie: păstrarea integrității tradiției pe măsură ce ea se transmite mai departe.</li>
+          <li>Transmiterea mai departe a cunoașterii — nu doar a tehnicii, ci și a exemplului unei practici oneste și responsabile.</li>
+          <li>Smerenia rămâne, chiar la acest prag: cu cât se cunoaște mai mult, cu atât rămâne mai limpede cât rămâne necunoscut.</li>
+          <li>Chiar semnificația exactă a acronimului rămâne, din sursele disponibile public, nedeslușită — un semn, poate, că unele praguri ale acestei tradiții se transmit doar prin apartenența la comunitate, nu prin materiale publice.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-label">Aplicație practică</div>
+          <p>Închiderea, simbolică, a acestui curs: o ultimă recitire a codului deontologic de la gradul VIII, cu experiența acumulată de-a lungul tuturor celor treisprezece grade — și, de aici înainte, o practică reală, alături de o comunitate reală, dincolo de orice text.</p>
+        </div>
+        <div class="grade-nav">
+          <button class="grade-nav-btn" data-target="grad-13">← Gradul XIII</button>
+          <button class="grade-nav-btn next" data-target="glosar">Glosar →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="jurnal">
+      <hr class="eyebrow-rule">
+      <h2>Jurnal personal</h2>
+      <p>Aproape fiecare grad al cursului cere, în felul lui, un jurnal — de exersare, de calibrare, triadic, spiritual, de discernământ, de practică. Acesta e un singur spațiu, comun, unde poți aduna însemnările proprii pe măsură ce parcurgi cursul.</p>
+      <p class="journal-hint">Scris local, în această pagină — nu se salvează automat nicăieri. Foloseşte „Descarcă” pentru a păstra un fișier propriu pe computer sau telefon, înainte de a închide pagina.</p>
+      <textarea class="journal-textarea" id="journalText" placeholder="Gradul I — 12 martie: am încercat exercițiul cu cele cinci obiecte…" aria-label="Jurnal personal"></textarea>
+      <div class="journal-actions">
+        <button class="journal-btn" id="journalDownload">Descarcă jurnalul (.txt)</button>
+        <button class="journal-btn secondary" id="journalCopy">Copiază în clipboard</button>
+        <button class="journal-btn secondary" id="journalClear">Golește</button>
+      </div>
+      <p class="journal-status" id="journalStatus"></p>
+    </section>
+
+    <section class="content-section" id="calibrare">
+      <hr class="eyebrow-rule">
+      <h2>Test de calibrare</h2>
+      <p>Gradul XI descrie testarea oarbă și jurnalul de calibrare drept instrumentele centrale ale discernământului avansat. Acesta e testul, implementat direct: patru poziții, una ascunde un simbol ales aleatoriu de aplicație chiar în clipa apăsării — nu dinainte, nu ținând cont de alegerea ta. Alege una, apoi vezi rezultatul.</p>
+      <p class="calib-note"><strong>Nu este o măsurătoare.</strong> Aplicația nu măsoară nicio energie, abilitate sau „putere”; numără doar câte ghiciri au nimerit o poziție aleasă la întâmplare. Procentul afișat este o statistică simplă, fără semnificație pentru sănătate sau pentru vreo calitate personală.</p>
+      <div class="calib-grid" id="calibGrid">
+        <button class="calib-card" data-i="0" aria-label="Poziția 1">?</button>
+        <button class="calib-card" data-i="1" aria-label="Poziția 2">?</button>
+        <button class="calib-card" data-i="2" aria-label="Poziția 3">?</button>
+        <button class="calib-card" data-i="3" aria-label="Poziția 4">?</button>
+      </div>
+      <p class="calib-status" id="calibStatus" role="status" aria-live="polite">Alege o poziție.</p>
+      <p class="calib-stats" id="calibStats">Runde: 0 · Corecte: 0 · Acuratețe: —</p>
+      <div class="note">
+        <div class="note-label">De reținut</div>
+        <p>Poziția corectă e trasă la sorți în mod real, la fiecare rundă. Pe termen lung, orice alegere — cu sau fără pendul — se apropie statistic de 25% (una din patru). Acesta e chiar pragul de comparație pe care gradul XI îl recomandă pentru propriul jurnal de calibrare: nu dacă ai ghicit o dată, ci cât de aproape de 25% rămâi după multe runde. Cu puține runde, abateri mari față de 25% sunt normale doar din întâmplare (vezi „Abatere tipică” de mai sus).</p>
+      </div>
+      <button class="journal-btn secondary" id="calibReset">Resetează statisticile</button>
+    </section>
+
+    <section class="content-section" id="glosar">
+      <hr class="eyebrow-rule">
+      <h2>Glosar</h2>
+      <p>Termenii de bază folosiți de-a lungul cursului, într-un singur loc.</p>
+      <input type="text" class="glossary-search" id="glossarySearch" placeholder="Caută un termen…" aria-label="Caută în glosar">
+      <div class="glossary-list" id="glossaryList">
+        <div class="glossary-item" data-term="inforenergetică"><div class="glossary-term">Inforenergetică</div><p class="glossary-def">Disciplină care studiază organizarea informației în câmpuri energetice și aplicarea acestor cunoștințe asupra sistemelor vii și nevii.</p></div>
+        <div class="glossary-item" data-term="radiestezie"><div class="glossary-term">Radiestezie</div><p class="glossary-def">Tehnică de detectare a unor semnale slabe, folosind un instrument (pendul, baghetă) ca amplificator al unui răspuns involuntar al corpului.</p></div>
+        <div class="glossary-item" data-term="operator"><div class="glossary-term">Operator</div><p class="glossary-def">Persoana antrenată să perceapă, interpreteze și utilizeze informația inforenergetică, urmând un cod etic asumat.</p></div>
+        <div class="glossary-item" data-term="structura fizica"><div class="glossary-term">Structură fizică</div><p class="glossary-def">Nivelul material, măsurabil, al ființei.</p></div>
+        <div class="glossary-item" data-term="structura biosica aura camp bioenergetic"><div class="glossary-term">Structură biosică</div><p class="glossary-def">Învelișul energetic-vital care susține structura fizică; apropiat, ca idee, de ceea ce alte tradiții numesc „aură” sau „câmp bioenergetic”.</p></div>
+        <div class="glossary-item" data-term="structura noetica noesica constiinta"><div class="glossary-term">Structură noetică (noesică)</div><p class="glossary-def">Dimensiunea mentală, informațională și spirituală a ființei; sediul conștiinței și al voinței.</p></div>
+        <div class="glossary-item" data-term="cordonul de argint"><div class="glossary-term">Cordonul de argint</div><p class="glossary-def">Imagine tradițională a legăturii continue dintre structura noetică și Sursă.</p></div>
+        <div class="glossary-item" data-term="camp informational"><div class="glossary-term">Câmp informațional</div><p class="glossary-def">Spațiul, nu neapărat fizic, în care informația despre un sistem poate fi „citită” de un operator antrenat, indiferent de distanță.</p></div>
+        <div class="glossary-item" data-term="teledeterminare"><div class="glossary-term">Teledeterminare</div><p class="glossary-def">Citirea informației despre un subiect aflat la distanță, de regulă pe baza unei fotografii, a unui nume scris sau a unei hărți.</p></div>
+        <div class="glossary-item" data-term="putere inforenergetica"><div class="glossary-term">Putere inforenergetică</div><p class="glossary-def">Parametru relativ, orientativ, folosit pentru a compara intensitatea unei stări sau a unei relații dintre două sisteme; nu o unitate de măsură științifică validată.</p></div>
+        <div class="glossary-item" data-term="diagnostic inforenergetic"><div class="glossary-term">Diagnostic inforenergetic</div><p class="glossary-def">O citire generală a stării de echilibru a unui sistem viu; nu înlocuiește un consult medical.</p></div>
+        <div class="glossary-item" data-term="optimizare inforenergetica"><div class="glossary-term">Optimizare inforenergetică</div><p class="glossary-def">Ajustare graduală, verificată prin citiri repetate, menită să sprijine echilibrul unui sistem.</p></div>
+        <div class="glossary-item" data-term="compatibilitate inforenergetica"><div class="glossary-term">Compatibilitate inforenergetică</div><p class="glossary-def">Gradul de „rezonanță” resimțită între două sisteme — persoane, spații sau obiecte.</p></div>
+        <div class="glossary-item" data-term="terapie inforenergetica"><div class="glossary-term">Terapie inforenergetică</div><p class="glossary-def">Set de tehnici prin care operatorul încearcă să sprijine, la nivel informațional-energetic, procesele proprii de reechilibrare ale organismului; privită, în această tradiție, ca sprijin complementar.</p></div>
+        <div class="glossary-item" data-term="protectie energetica"><div class="glossary-term">Protecție energetică</div><p class="glossary-def">Metode prin care operatorul își apără structura biosică și noetică în timpul lucrului.</p></div>
+        <div class="glossary-item" data-term="curatare informationala"><div class="glossary-term">Curățare informațională</div><p class="glossary-def">Tehnici de îndepărtare a informației reziduale dintr-un spațiu, obiect sau relație.</p></div>
+        <div class="glossary-item" data-term="cod deontologic etica"><div class="glossary-term">Cod deontologic</div><p class="glossary-def">Principiile etice ale practicii: fără câștig material, binele celorlalți înaintea celui propriu, prudență în anunțarea evenimentelor negative, recunoștință pentru sprijinul primit.</p></div>
+        <div class="glossary-item" data-term="camp inforenergetic colectiv grup"><div class="glossary-term">Câmp inforenergetic colectiv</div><p class="glossary-def">Starea de ansamblu a unui grup — familie, echipă, organizație — diferită de simpla însumare a stărilor individuale ale membrilor.</p></div>
+        <div class="glossary-item" data-term="amprenta informationala"><div class="glossary-term">Amprentă informațională</div><p class="glossary-def">Urma reziduală, teoretizată, a unor evenimente semnificative asupra unui loc, obiect sau sistem.</p></div>
+        <div class="glossary-item" data-term="proiectie discernamant"><div class="glossary-term">Proiecție</div><p class="glossary-def">Tendința inconștientă de a „citi” exact ceea ce operatorul se așteaptă sau își dorește să găsească, în locul unui semnal real.</p></div>
+        <div class="glossary-item" data-term="test orb calibrare"><div class="glossary-term">Test orb</div><p class="glossary-def">Verificare în care citirea este notată înainte de a fi comparată cu răspunsul corect, pentru a elimina influența așteptării.</p></div>
+        <div class="glossary-item" data-term="retea geobiologica hartmann curry geopatie"><div class="glossary-term">Rețea geobiologică</div><p class="glossary-def">Rețea de tip Hartmann, Curry sau similară, asociată în această tradiție unui posibil impact asupra echilibrului sistemelor vii.</p></div>
+        <div class="glossary-item" data-term="jurnal de practica"><div class="glossary-term">Jurnal de practică</div><p class="glossary-def">Evidență structurată (dată, context, citire, verificare) ținută pe termen lung pentru autoevaluare onestă.</p></div>
+        <div class="glossary-item" data-term="ios nivel suprem"><div class="glossary-term">IOS (nivelul suprem)</div><p class="glossary-def">Cea mai înaltă recunoaștere din această tradiție, acordată de o comunitate de practicieni după Gradul XIII — nu un al paisprezecelea grad numerotat, ci o desemnare distinctă.</p></div>
+        <div class="glossary-item" data-term="recunoastere comunitate"><div class="glossary-term">Recunoaștere</div><p class="glossary-def">Confirmarea, din partea unei comunități de practicieni, a nivelului de pregătire al cuiva — diferită de o autoevaluare, oricât de onestă.</p></div>
+      </div>
+      <p class="glossary-empty" id="glossaryEmpty">Niciun termen găsit.</p>
+    </section>
+
+    <section class="content-section" id="autoevaluare">
+      <hr class="eyebrow-rule">
+      <h2>Autoevaluare</h2>
+      <p>Douăsprezece întrebări pentru a verifica terminologia și conceptele parcurse. Testul nu are legătură cu nicio evaluare a stării proprii — verifică doar înțelegerea materialului de curs.</p>
+      <div id="quizArea"></div>
+    </section>
+
+    <section class="content-section" id="resurse">
+      <hr class="eyebrow-rule">
+      <h2>Resurse și continuare</h2>
+      <p>Acest curs este o sinteză educațională, realizată pentru colecția de aplicații html fără frontiere. Structura pe treisprezece grade și nivelul IOS urmează îndeaproape școala fondată în 1987 de Claudian Dumitriu — cea mai veche și mai documentată structură de acest fel găsită în cercetarea pentru acest curs — fără a reprezenta, prin aceasta, materialul oficial al acestei sau al vreunei alte școli.</p>
+      <p>Pentru aprofundare, cele mai potrivite direcții rămân: cursurile organizate de societăți și fundații de inforenergetică și radiestezie, materialele de curs distribuite direct cursanților, precum și comunitățile și grupurile dedicate acestor practici. Aplicația <strong>RADIESTEZIA</strong>, din aceeași colecție, detaliază pe larg partea tehnică, instrumentală, a acestei tradiții.</p>
+      <div class="note">
+        <div class="note-label">De reținut</div>
+        <p>Ca orice disciplină din familia bioenergetică, inforenergetica se prezintă pe sine ca un cadru complementar, nu ca un substitut al evaluării medicale sau științifice. Așa cum arată chiar nivelul IOS, titlul în sine nu se obține citind, ci practicând, alături de o comunitate reală.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">Parte din colecția de aplicații HTML fără frontiere — document educațional offline, fără dependințe externe, fără telemetrie. <span class="foot-disc">Practică fără validare științifică; nu este sfat medical și nu înlocuiește medicul.</span></footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var sidebar = document.getElementById('sidebar');
+  var backdrop = document.getElementById('backdrop');
+  var menuToggle = document.getElementById('menuToggle');
+  var themeToggle = document.getElementById('themeToggle');
+  var visited = new Set(['acasa']);
+  var PROGRESS_SECTIONS = ['grad-1','grad-2','grad-3','grad-4','grad-5','grad-6','grad-7','grad-8','grad-9','grad-10','grad-11','grad-12','grad-13','ios'];
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+
+  function updateProgress(){
+    var done = PROGRESS_SECTIONS.filter(function(id){ return visited.has(id); }).length;
+    var pct = Math.round(done / PROGRESS_SECTIONS.length * 100);
+    if(progressFill) progressFill.style.width = pct + '%';
+    if(progressLabel) progressLabel.textContent = done + ' / ' + PROGRESS_SECTIONS.length + ' grade';
+  }
+
+  function updatePathMap(activeId){
+    var nodes = document.querySelectorAll('#pathMap .path-node');
+    nodes.forEach(function(node){
+      var target = node.getAttribute('data-target');
+      node.classList.toggle('visited', visited.has(target));
+      node.classList.toggle('current', target === activeId);
+    });
+    var connectors = document.querySelectorAll('#pathMap .path-connector');
+    connectors.forEach(function(conn, i){
+      conn.classList.toggle('done', !!(nodes[i] && nodes[i].classList.contains('visited')));
+    });
+  }
+
+  function closeMenu(){
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('show');
+    menuToggle.setAttribute('aria-expanded','false');
+  }
+  function openMenu(){
+    sidebar.classList.add('open');
+    backdrop.classList.add('show');
+    menuToggle.setAttribute('aria-expanded','true');
+  }
+  menuToggle.addEventListener('click', function(){
+    sidebar.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  backdrop.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && sidebar.classList.contains('open')){ closeMenu(); menuToggle.focus(); }
+  });
+  // Keep aria-pressed in sync with the visual "active" state of toggle buttons
+  ['ttsToggle','wakeToggle','fullscreenToggle'].forEach(function(id){
+    var b = document.getElementById(id);
+    if(!b || !window.MutationObserver) return;
+    b.setAttribute('aria-pressed','false');
+    new MutationObserver(function(){ b.setAttribute('aria-pressed', b.classList.contains('active') ? 'true' : 'false'); }).observe(b,{attributes:true,attributeFilter:['class']});
+  });
+
+  function syncThemeColor(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    var color = isLight ? '#f6f1e4' : '#10121e';
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function(m){ m.setAttribute('content', color); });
+  }
+
+  themeToggle.addEventListener('click', function(){
+    var html = document.documentElement;
+    var isLight = html.getAttribute('data-theme') === 'light';
+    html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+    syncThemeColor();
+  });
+
+  // Respect the system's light/dark preference on first load
+  (function(){
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)');
+    if(mq && mq.matches){ document.documentElement.setAttribute('data-theme','light'); }
+    syncThemeColor();
+  })();
+
+  // Text-to-speech: reads the currently active section aloud
+  var ttsToggle = document.getElementById('ttsToggle');
+  var speaking = false;
+  function getActiveSectionText(){
+    var active = document.querySelector('.content-section.active');
+    if(!active) return '';
+    var clone = active.cloneNode(true);
+    clone.querySelectorAll('button, input, textarea, svg, .grade-nav, .journal-actions').forEach(function(el){ el.remove(); });
+    return clone.textContent.replace(/\s+/g,' ').trim();
+  }
+  function stopSpeaking(){
+    if(window.speechSynthesis) window.speechSynthesis.cancel();
+    speaking = false;
+    if(ttsToggle) ttsToggle.classList.remove('active');
+  }
+  if(ttsToggle){
+    if(!('speechSynthesis' in window)){
+      ttsToggle.style.display = 'none';
+    } else {
+      ttsToggle.addEventListener('click', function(){
+        if(speaking){ stopSpeaking(); return; }
+        var text = getActiveSectionText();
+        if(!text) return;
+        var utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'ro-RO';
+        utter.onend = function(){ speaking = false; ttsToggle.classList.remove('active'); };
+        utter.onerror = function(){ speaking = false; ttsToggle.classList.remove('active'); };
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utter);
+        speaking = true;
+        ttsToggle.classList.add('active');
+      });
+    }
+  }
+
+  // Wake Lock: keep the screen on while reading
+  var wakeToggle = document.getElementById('wakeToggle');
+  var wakeLock = null;
+  if(wakeToggle){
+    if(!('wakeLock' in navigator)){
+      wakeToggle.style.display = 'none';
+    } else {
+      wakeToggle.addEventListener('click', function(){
+        if(wakeLock){
+          wakeLock.release().catch(function(){});
+        } else {
+          navigator.wakeLock.request('screen').then(function(lock){
+            wakeLock = lock;
+            wakeToggle.classList.add('active');
+            lock.addEventListener('release', function(){
+              wakeToggle.classList.remove('active');
+              wakeLock = null;
+            });
+          }).catch(function(){ /* e.g. blocked by battery saver — ignore quietly */ });
+        }
+      });
+    }
+  }
+
+  // Fullscreen toggle
+  var fullscreenToggle = document.getElementById('fullscreenToggle');
+  if(fullscreenToggle){
+    var reqFs = document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen;
+    var exitFs = document.exitFullscreen || document.webkitExitFullscreen;
+    if(!reqFs){
+      fullscreenToggle.style.display = 'none';
+    } else {
+      fullscreenToggle.addEventListener('click', function(){
+        var current = document.fullscreenElement || document.webkitFullscreenElement;
+        if(current){ exitFs.call(document); }
+        else { reqFs.call(document.documentElement); }
+      });
+      ['fullscreenchange','webkitfullscreenchange'].forEach(function(evt){
+        document.addEventListener(evt, function(){
+          var current = document.fullscreenElement || document.webkitFullscreenElement;
+          fullscreenToggle.classList.toggle('active', !!current);
+        });
+      });
+    }
+  }
+
+  // Print / export the whole course as PDF via the browser's native print dialog
+  var printBtn = document.getElementById('printBtn');
+  if(printBtn){ printBtn.addEventListener('click', function(){ stopSpeaking(); window.print(); }); }
+
+  // Personal journal: local textarea with download / copy / clear
+  var journalText = document.getElementById('journalText');
+  var journalStatus = document.getElementById('journalStatus');
+  var journalDownload = document.getElementById('journalDownload');
+  var journalCopy = document.getElementById('journalCopy');
+  var journalClear = document.getElementById('journalClear');
+  function journalMsg(msg){
+    if(!journalStatus) return;
+    journalStatus.textContent = msg;
+    setTimeout(function(){ if(journalStatus.textContent === msg) journalStatus.textContent = ''; }, 2600);
+  }
+  if(journalDownload){
+    journalDownload.addEventListener('click', function(){
+      var content = journalText ? journalText.value : '';
+      if(!content.trim()){ journalMsg('Jurnalul e gol — scrie ceva înainte de a descărca.'); return; }
+      var blob = new Blob([content], {type:'text/plain;charset=utf-8'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'jurnal-inforenergetica.txt';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      journalMsg('Descărcat ca „jurnal-inforenergetica.txt”.');
+    });
+  }
+  if(journalCopy){
+    journalCopy.addEventListener('click', function(){
+      var content = journalText ? journalText.value : '';
+      if(!content.trim()){ journalMsg('Jurnalul e gol.'); return; }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(content).then(function(){ journalMsg('Copiat în clipboard.'); }).catch(function(){ journalMsg('Nu s-a putut copia automat — selectează și copiază manual.'); });
+      } else {
+        journalMsg('Clipboard indisponibil — selectează și copiază manual.');
+      }
+    });
+  }
+  if(journalClear){
+    journalClear.addEventListener('click', function(){
+      if(journalText && journalText.value && !window.confirm('Ștergi tot textul din jurnal?')) return;
+      if(journalText) journalText.value = '';
+      journalMsg('Golit.');
+    });
+  }
+
+  // Global full-text search across every section
+  var globalSearch = document.getElementById('globalSearch');
+  var globalSearchResults = document.getElementById('globalSearchResults');
+  var SEARCH_INDEX = null;
+  // Length-preserving diacritic folding (ș/ş→s, ț/ţ→t, ă/â→a, î→i), lower-cased
+  function fold(str){ return String(str).replace(/[^\u0000-\u007f]/g, function(ch){ return ch.normalize('NFD').charAt(0); }).toLowerCase(); }
+  function escapeHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function buildSearchIndex(){
+    SEARCH_INDEX = [];
+    document.querySelectorAll('.content-section').forEach(function(sec){
+      var titleEl = sec.querySelector('h1, h2');
+      var title = titleEl ? titleEl.textContent.trim() : sec.id;
+      var clone = sec.cloneNode(true);
+      clone.querySelectorAll('button, input, textarea, svg, script').forEach(function(el){ el.remove(); });
+      var text = (clone.textContent || '').replace(/\s+/g,' ').trim();
+      SEARCH_INDEX.push({id: sec.id, title: title, text: text, folded: fold(text)});
+    });
+  }
+  function runGlobalSearch(q){
+    q = q.trim();
+    if(q.length < 2){ globalSearchResults.classList.remove('show'); globalSearchResults.innerHTML=''; return; }
+    if(!SEARCH_INDEX) buildSearchIndex();
+    var qLower = fold(q);
+    var results = [];
+    SEARCH_INDEX.forEach(function(entry){
+      var idx = entry.folded.indexOf(qLower);
+      if(idx !== -1){
+        var start = Math.max(0, idx - 40);
+        var snippetHtml = (start>0?'…':'') + escapeHtml(entry.text.substring(start, idx)) + '<mark>' + escapeHtml(entry.text.substr(idx, qLower.length)) + '</mark>' + escapeHtml(entry.text.substring(idx + qLower.length, idx + qLower.length + 60)) + '…';
+        results.push({id: entry.id, title: entry.title, snippetHtml: snippetHtml});
+      }
+    });
+    if(results.length === 0){
+      globalSearchResults.innerHTML = '<div class="gsr-empty">Niciun rezultat pentru „' + escapeHtml(q) + '”.</div>';
+    } else {
+      globalSearchResults.innerHTML = results.slice(0,8).map(function(r){
+        return '<button class="gsr-item" data-target="' + r.id + '"><span class="gsr-title">' + escapeHtml(r.title) + '</span><span class="gsr-snippet">' + r.snippetHtml + '</span></button>';
+      }).join('');
+    }
+    globalSearchResults.classList.add('show');
+  }
+  if(globalSearch){
+    globalSearch.addEventListener('input', function(){ runGlobalSearch(globalSearch.value); });
+    globalSearch.addEventListener('focus', function(){ if(globalSearch.value.trim().length>=2) globalSearchResults.classList.add('show'); });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.global-search-wrap')){ globalSearchResults.classList.remove('show'); }
+    });
+  }
+
+  // Concept map: keyboard support for the SVG nodes (Enter / Space)
+  document.querySelectorAll('.cmap-node').forEach(function(node){
+    node.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        node.dispatchEvent(new MouseEvent('click', {bubbles:true}));
+      }
+    });
+  });
+
+  // Calibration test: a working, honestly-random implementation of Gradul XI's blind test
+  var calibGrid = document.getElementById('calibGrid');
+  if(calibGrid){
+    var calibRounds = 0, calibCorrect = 0, calibAnswered = false, calibTarget = -1;
+    var calibCards = calibGrid.querySelectorAll('.calib-card');
+    var calibTimer = null;
+    // Unbiased random integer in [0,n) using crypto when available (rejection sampling), Math.random otherwise
+    function randInt(n){
+      try{
+        if(window.crypto && crypto.getRandomValues){
+          var buf = new Uint32Array(1), lim = Math.floor(4294967296 / n) * n;
+          do{ crypto.getRandomValues(buf); }while(buf[0] >= lim);
+          return buf[0] % n;
+        }
+      }catch(e){}
+      return Math.floor(Math.random() * n);
+    }
+    function calibStatsText(){
+      if(!calibRounds) return 'Runde: 0 · Corecte: 0 · Acuratețe: —';
+      var pct = Math.round(calibCorrect / calibRounds * 100);
+      var sd = Math.sqrt(0.25 * 0.75 / calibRounds) * 100;
+      return 'Runde: ' + calibRounds + ' · Corecte: ' + calibCorrect + ' · Acuratețe: ' + pct + '% · Așteptat din hazard: 25% ± ' + sd.toFixed(0) + '% (abatere tipică)';
+    }
+    var calibStatus = document.getElementById('calibStatus');
+    var calibStats = document.getElementById('calibStats');
+    function calibNewRound(){
+      calibTarget = randInt(calibCards.length);
+      calibAnswered = false;
+      calibCards.forEach(function(c){ c.disabled = false; c.textContent = '?'; c.classList.remove('correct','incorrect'); });
+      if(calibStatus) calibStatus.textContent = 'Alege o poziție.';
+    }
+    calibCards.forEach(function(card){
+      card.addEventListener('click', function(){
+        if(calibAnswered) return;
+        calibAnswered = true;
+        var i = parseInt(card.getAttribute('data-i'), 10);
+        calibRounds++;
+        var isCorrect = (i === calibTarget);
+        if(isCorrect) calibCorrect++;
+        calibCards.forEach(function(c, ci){
+          c.disabled = true;
+          c.textContent = (ci === calibTarget) ? '★' : '—';
+          if(ci === calibTarget) c.classList.add('correct');
+          else if(ci === i) c.classList.add('incorrect');
+        });
+        if(navigator.vibrate){ navigator.vibrate(isCorrect ? 25 : [15,70,15]); }
+        if(calibStatus) calibStatus.textContent = isCorrect ? 'Corect — o singură rundă nu spune, totuși, mare lucru.' : 'Greșit — poziția era alta.';
+        if(calibStats) calibStats.textContent = calibStatsText();
+        clearTimeout(calibTimer);
+        calibTimer = setTimeout(calibNewRound, 1400);
+      });
+    });
+    var calibReset = document.getElementById('calibReset');
+    if(calibReset){
+      calibReset.addEventListener('click', function(){
+        calibRounds = 0; calibCorrect = 0;
+        clearTimeout(calibTimer);
+        if(calibStats) calibStats.textContent = calibStatsText();
+        calibNewRound();
+      });
+    }
+    calibNewRound();
+  }
+
+  function showSection(id){
+    var target = document.getElementById(id);
+    if(!target) return;
+    stopSpeaking();
+    document.querySelectorAll('.content-section').forEach(function(s){ s.classList.remove('active'); });
+    target.classList.add('active');
+    visited.add(id);
+    document.querySelectorAll('.nav-link').forEach(function(link){
+      var isActive = link.getAttribute('data-target') === id;
+      if(isActive){ link.setAttribute('aria-current','page'); } else { link.removeAttribute('aria-current'); }
+      if(visited.has(link.getAttribute('data-target'))){ link.classList.add('visited'); }
+    });
+    updateProgress();
+    updatePathMap(id);
+    if(globalSearchResults) globalSearchResults.classList.remove('show');
+    document.querySelector('.main').scrollTo({top:0, behavior:'auto'});
+    window.scrollTo({top:0, behavior:'auto'});
+    closeMenu();
+  }
+
+  document.body.addEventListener('click', function(e){
+    var el = e.target.closest('[data-target]');
+    if(!el) return;
+    e.preventDefault();
+    showSection(el.getAttribute('data-target'));
+  });
+
+  // Glossary filter
+  var searchInput = document.getElementById('glossarySearch');
+  var items = document.querySelectorAll('.glossary-item');
+  var emptyMsg = document.getElementById('glossaryEmpty');
+  searchInput.addEventListener('input', function(){
+    var q = fold(searchInput.value.trim());
+    var shown = 0;
+    items.forEach(function(item){
+      var haystack = fold(item.dataset.term + ' ' + item.textContent);
+      var match = haystack.indexOf(q) !== -1;
+      item.style.display = match ? '' : 'none';
+      if(match) shown++;
+    });
+    emptyMsg.style.display = shown === 0 ? 'block' : 'none';
+  });
+
+  // Quiz
+  var QUIZ = [
+    {
+      q:"De ce încep, de regulă, exercițiile de gradul I pe structuri fizice nevii?",
+      options:["Pentru că rezultatul poate fi verificat obiectiv, spre deosebire de citirile pe sisteme vii","Pentru că sistemele vii nu pot fi niciodată investigate","Pentru că nu necesită niciun instrument","Pentru că este ultima etapă a cursului"],
+      correct:0,
+      explain:"Structurile fizice nevii (hărți, obiecte, terenuri) permit o verificare obiectivă a rezultatului, ceea ce le face un punct de plecare mai sigur decât citirile pe sisteme vii, mult mai variabile."
+    },
+    {
+      q:"Ce grupează gradul II sub aceeași etapă a cursului?",
+      options:["Doar tehnicile de protecție energetică","Diagnostic, compatibilitate și optimizare","Doar codul deontologic","Doar diagnosticul inforenergetic"],
+      correct:1,
+      explain:"Gradul II tratează împreună diagnosticul stării unui sistem viu, compatibilitatea dintre două sisteme și optimizarea graduală a echilibrului lor."
+    },
+    {
+      q:"Ce este, potrivit cursului, structura biosică?",
+      options:["Corpul material, măsurabil","Un document de identitate energetică","Învelișul energetic-vital care susține structura fizică","O tehnică de teledeterminare"],
+      correct:2,
+      explain:"Structura biosică este învelișul energetic-vital care susține și „hrănește” corpul fizic — apropiată, ca idee, de ceea ce alte tradiții numesc „aură” sau „câmp bioenergetic”."
+    },
+    {
+      q:"Ce este „puterea inforenergetică”, introdusă la gradul IV?",
+      options:["O unitate de măsură științifică validată","Sinonim pentru cordonul de argint","Un parametru relativ, folosit pentru a compara stări sau relații","Un instrument exclusiv de radiestezie"],
+      correct:2,
+      explain:"Puterea inforenergetică este descrisă ca un parametru relativ, orientativ, folosit pentru a compara intensitatea unei stări sau a unei relații — nu ca o unitate de măsură științifică validată."
+    },
+    {
+      q:"Cum este descrisă terapia inforenergetică față de medicina convențională?",
+      options:["O înlocuiește complet","Este descrisă drept un sprijin complementar, nu un tratament de sine stătător","Nu are nicio legătură cu starea de sănătate","Este considerată superioară actului medical"],
+      correct:1,
+      explain:"Materialele acestei tradiții descriu terapia inforenergetică drept un sprijin complementar, nu un tratament de sine stătător — și recomandă păstrarea consultului medical de specialitate."
+    },
+    {
+      q:"Care este primul principiu al codului deontologic de la gradul VIII?",
+      options:["Evenimentele negative se anunță imediat, fără verificare","Recunoștința este opțională","Câștigul material justifică orice intervenție","Practica nu urmărește câștig material"],
+      correct:3,
+      explain:"Codul deontologic transmis prin aceste cursuri insistă, ca prim principiu, că practica nu urmărește câștig material."
+    },
+    {
+      q:"Ce este un „câmp inforenergetic colectiv” (gradul IX)?",
+      options:["Suma simplă a citirilor individuale ale membrilor unui grup","Un test orb aplicat unui grup","Un instrument exclusiv de radiestezie","Starea de ansamblu a unui grup, diferită de suma stărilor individuale"],
+      correct:3,
+      explain:"Gradul IX descrie „câmpul inforenergetic colectiv” ca starea de ansamblu a unui grup — familie, echipă, organizație — diferită de simpla însumare a stărilor individuale ale membrilor."
+    },
+    {
+      q:"La ce se referă ideea de „proiecție” de la gradul XI?",
+      options:["O tehnică de teledeterminare la distanță mare","Structura noetică a unui sistem viu","Un ritual de protecție energetică","Tendința de a „citi” exact ceea ce operatorul se așteaptă sau își dorește să găsească"],
+      correct:3,
+      explain:"„Proiecția” este tendința inconștientă de a confunda propriile așteptări sau dorințe cu un semnal real — tema centrală a gradului XI."
+    },
+    {
+      q:"Ce este o rețea geobiologică, discutată la gradul XII?",
+      options:["O rețea socială de practicieni","O rețea de tip Hartmann, Curry sau similară, cu posibil impact asupra echilibrului sistemelor vii","Sinonim pentru câmpul informațional","O tehnică de curățare informațională"],
+      correct:1,
+      explain:"Rețelele geobiologice — de tip Hartmann, Curry sau similar — sunt asociate, în această tradiție, unui posibil impact asupra echilibrului sistemelor vii care petrec timp îndelungat în acele zone."
+    },
+    {
+      q:"Ce recomandă gradul XIII atunci când un caz depășește cadrul practicii unui operator?",
+      options:["Continuarea lucrului, indiferent de semnalele de suprasolicitare","Creșterea numărului de sesiuni de lucru pe același caz","Ignorarea propriilor limite, în beneficiul subiectului","Redirecționarea, fără ezitare, către un specialist potrivit"],
+      correct:3,
+      explain:"Gradul XIII insistă pe redirecționarea fără ezitare către un specialist potrivit — medic, psihoterapeut sau altă persoană calificată — atunci când un caz depășește cadrul practicii."
+    },
+    {
+      q:"Cum se obține, potrivit cursului, nivelul IOS?",
+      options:["Automat, după parcurgerea celor treisprezece grade","Printr-o autoevaluare onestă a propriei practici","Prin recunoașterea din partea unei comunități de practicieni","Printr-un test scris, similar celui de autoevaluare din acest curs"],
+      correct:2,
+      explain:"IOS nu poate fi auto-acordat sau obținut doar prin parcurgerea gradelor: recunoașterea vine din partea unei comunități de practicieni, prin experiență directă."
+    },
+    {
+      q:"Ce recunoaște, cu onestitate, nivelul IOS despre acest curs?",
+      options:["Că parcurgerea cursului este suficientă pentru a obține IOS","Că nivelul IOS anulează nevoia codului etic de la gradul VIII","Că disciplina nu mai are nevoie de practică după acest grad","Că teoria și structura pot fi transmise printr-un curs, dar experiența și recunoașterea comunității nu"],
+      correct:3,
+      explain:"IOS recunoaște limitele oricărui curs: teoria și terminologia pot fi transmise în scris, dar experiența, discernământul și recunoașterea reală a unei comunități se construiesc doar prin practică."
+    }
+  ];
+
+  var quizArea = document.getElementById('quizArea');
+  var qi = 0, score = 0, answered = false;
+
+  function renderQuiz(){
+    if(qi >= QUIZ.length){ renderResult(); return; }
+    var item = QUIZ[qi];
+    answered = false;
+    var html = '<div class="quiz-progress">Întrebarea ' + (qi+1) + ' din ' + QUIZ.length + ' · scor: ' + score + '</div>';
+    html += '<div class="quiz-card"><div class="quiz-question">' + item.q + '</div><ul class="quiz-options">';
+    item.options.forEach(function(opt, i){
+      html += '<li><button class="quiz-option" data-idx="' + i + '">' + opt + '</button></li>';
+    });
+    html += '</ul><div class="quiz-feedback" aria-live="polite"></div></div>';
+    quizArea.innerHTML = html;
+
+    var buttons = quizArea.querySelectorAll('.quiz-option');
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(answered) return;
+        answered = true;
+        var chosen = parseInt(btn.getAttribute('data-idx'), 10);
+        var correct = item.correct;
+        buttons.forEach(function(b, i){
+          b.disabled = true;
+          if(i === correct) b.classList.add('correct');
+          else if(i === chosen) b.classList.add('incorrect');
+        });
+        if(chosen === correct) score++;
+        if(navigator.vibrate){ navigator.vibrate(chosen === correct ? 25 : [15,70,15]); }
+        var feedback = quizArea.querySelector('.quiz-feedback');
+        feedback.innerHTML = '<div class="quiz-explain"><p>' + item.explain + '</p></div>' +
+          '<button class="quiz-next" id="quizNextBtn">' + (qi < QUIZ.length - 1 ? 'Întrebarea următoare' : 'Vezi rezultatul') + '</button>';
+        document.getElementById('quizNextBtn').addEventListener('click', function(){
+          qi++;
+          renderQuiz();
+        });
+      });
+    });
+  }
+
+  function renderResult(){
+    var pct = Math.round(score / QUIZ.length * 100);
+    var r = 40, circumference = 2 * Math.PI * r;
+    var html = '<div class="quiz-card quiz-result">';
+    html += '<div class="quiz-gauge-wrap">';
+    html += '<svg class="quiz-gauge" viewBox="0 0 100 100" aria-hidden="true">';
+    html += '<circle cx="50" cy="50" r="' + r + '" fill="none" style="stroke:var(--border)" stroke-width="8"/>';
+    html += '<circle class="quiz-gauge-ring quiz-gauge-fill" cx="50" cy="50" r="' + r + '" fill="none" style="stroke:var(--gold)" stroke-width="8" stroke-linecap="round" stroke-dasharray="' + circumference.toFixed(1) + '" stroke-dashoffset="' + circumference.toFixed(1) + '"/>';
+    html += '</svg>';
+    html += '<div><h3 style="margin:0;">' + score + ' din ' + QUIZ.length + '</h3><p style="margin:0.2em 0 0;color:var(--ink-dim);">' + pct + '%</p></div>';
+    html += '</div>';
+    if(score === QUIZ.length){
+      html += '<p>Terminologia și structura cursului sunt clare — parcurs complet.</p>';
+    } else if(score >= QUIZ.length - 2){
+      html += '<p>Foarte aproape de parcurs complet. Merită o recitire scurtă a gradelor cu răspunsuri greșite.</p>';
+    } else {
+      html += '<p>O recapitulare a glosarului și a conceptelor fundamentale ar putea ajuta înainte de o nouă încercare.</p>';
+    }
+    html += '<button class="quiz-restart" id="quizShareBtn" style="margin-right:0.6rem;">Distribuie rezultatul</button>';
+    html += '<button class="quiz-restart" id="quizRestartBtn">Reia testul</button></div>';
+    quizArea.innerHTML = html;
+    var ring = quizArea.querySelector('.quiz-gauge-fill');
+    if(ring){
+      var targetOffset = circumference * (1 - pct / 100);
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){ ring.style.strokeDashoffset = targetOffset.toFixed(1); });
+      });
+    }
+    var shareBtn = document.getElementById('quizShareBtn');
+    if(shareBtn){
+      shareBtn.addEventListener('click', function(){
+        var msg = 'Am obținut ' + score + ' din ' + QUIZ.length + ' (' + pct + '%) la testul de autoevaluare Inforenergetica.';
+        if(navigator.share){
+          navigator.share({text: msg}).catch(function(){});
+        } else if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(msg).then(function(){
+            shareBtn.textContent = 'Copiat în clipboard';
+            setTimeout(function(){ shareBtn.textContent = 'Distribuie rezultatul'; }, 2200);
+          }).catch(function(){});
+        }
+      });
+    }
+    document.getElementById('quizRestartBtn').addEventListener('click', function(){
+      qi = 0; score = 0;
+      renderQuiz();
+    });
+  }
+
+  renderQuiz();
+  showSection('acasa');
+})();
+</script>
+</body>
+</html>
