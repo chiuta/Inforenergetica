@@ -22,6 +22,7 @@ Verificate în cod și în browser:
 - Navigare pe secțiuni: Acasă, Istoric și context, Analiză SWOT / TOWS, Concepte fundamentale, Gradele I–XIII, IOS, Jurnal personal, Test de calibrare, Glosar, Autoevaluare, Resurse.
 - Analiza SWOT și matricea TOWS a domeniului (8 carduri: 4 SWOT + 4 strategii TOWS).
 - Test de calibrare: patru poziții, una aleasă la întâmplare la fiecare rundă (generator `crypto.getRandomValues`, cu rezervă `Math.random`); afișează runde, nimeriri și abaterea tipică așteptată din hazard. Nu măsoară nicio energie sau abilitate.
+- Legături directe către secțiuni (`#grad-3`, `#swot` etc.) și butonul „Înapoi”/„Înainte” al browserului între secțiuni; adresa nu conține date personale și nu se stochează nimic.
 - Căutare în tot cursul și în glosar, cu ignorarea diacriticelor.
 - Autoevaluare cu 12 întrebări.
 - Jurnal personal (descărcare .txt, copiere în clipboard, golire); opțional, casetă „Păstrează jurnalul în acest browser” (implicit oprită); avertisment la părăsirea paginii dacă există text nedescărcat și nepăstrat.
@@ -57,6 +58,9 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet sau de server.
 
 ## Istoric / Changelog
+
+### 11 octombrie 2026 (rev. 3)
+- Navigarea între secțiuni se reflectă în adresă (`#id`): legături directe, buton „Înapoi”/„Înainte” funcțional, hash invalid sau necunoscut duce la Acasă. Nu se adaugă stocare. CSP: hash recalculat.
 
 ### 11 octombrie 2026 (rev. 2)
 - Jurnal: păstrare locală opțională (opt-in) și avertisment la părăsirea paginii cu text nesalvat; câmpul de stare este anunțat de cititoarele de ecran (`role="status"`).

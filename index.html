@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-P5xVS51lB2bkfTqSO644L5Fq2BlZIwRIWraQbjS0fYs='; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-GkSuXXhBKMFWfdk/kcj9UbtMRT/PMMlIdCWUp90lXqc='; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark light">
@@ -1940,9 +1940,10 @@
     calibNewRound();
   }
 
-  function showSection(id){
+  function showSection(id, fromHistory){
     var target = document.getElementById(id);
-    if(!target) return;
+    if(!target || !target.classList.contains('content-section')) return;
+    if(!fromHistory && location.hash !== '#' + id){ try{ history.pushState(null, '', '#' + id); }catch(e){} }
     stopSpeaking();
     document.querySelectorAll('.content-section').forEach(function(s){ s.classList.remove('active'); });
     target.classList.add('active');
@@ -2148,7 +2149,10 @@
   }
 
   renderQuiz();
-  showSection('acasa');
+  // legătură directă și butonul „Înapoi”: secțiunea curentă se reflectă în adresă (#grad-3), fără stocare
+  function sectionFromHash(){ var h = (location.hash || '').slice(1); try{ h = decodeURIComponent(h); }catch(e){ return null; } var t = h && document.getElementById(h); return t && t.classList.contains('content-section') ? h : null; }
+  window.addEventListener('popstate', function(){ showSection(sectionFromHash() || 'acasa', true); });
+  showSection(sectionFromHash() || 'acasa', true);
 })();
 </script>
 </body>
