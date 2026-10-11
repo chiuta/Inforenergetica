@@ -24,7 +24,8 @@ Verificate în cod și în browser:
 - Test de calibrare: patru poziții, una aleasă la întâmplare la fiecare rundă (generator `crypto.getRandomValues`, cu rezervă `Math.random`); afișează runde, nimeriri și abaterea tipică așteptată din hazard. Nu măsoară nicio energie sau abilitate.
 - Căutare în tot cursul și în glosar, cu ignorarea diacriticelor.
 - Autoevaluare cu 12 întrebări.
-- Jurnal personal (descărcare .txt, copiere în clipboard, golire).
+- Jurnal personal (descărcare .txt, copiere în clipboard, golire); opțional, casetă „Păstrează jurnalul în acest browser” (implicit oprită); avertisment la părăsirea paginii dacă există text nedescărcat și nepăstrat.
+- Mărime text: butonul „Aa” din bara de sus parcurge 100% / 115% / 130%.
 - Temă deschisă/închisă, citire cu voce tare (sinteza vocală a browserului), ecran activ (Wake Lock), ecran complet, printare / export PDF a întregului curs.
 
 ## Manual de utilizare
@@ -39,7 +40,7 @@ Verificate în cod și în browser:
 
 ## Confidențialitate și rețea
 
-- Storage: aplicația nu folosește `localStorage`, `sessionStorage`, IndexedDB sau cookie-uri. Jurnalul și progresul există doar în pagina deschisă și se pierd la închidere/reîncărcare; jurnalul se păstrează numai dacă îl descarci.
+- Storage: implicit aplicația nu stochează nimic (nici `sessionStorage`, IndexedDB sau cookie-uri). Singura excepție este opțiunea „Păstrează jurnalul în acest browser”, pe care o activezi tu: atunci textul jurnalului se salvează în `localStorage` (chei `inforenergetica-jurnal` și `inforenergetica-jurnal-pastrat`), doar pe acest dispozitiv; debifarea sau „Golește” îl șterge. Dacă opțiunea e oprită, jurnalul și progresul se pierd la închidere/reîncărcare, iar jurnalul se păstrează doar dacă îl descarci. Mărimea textului nu se reține.
 - Rețea: nu am găsit niciun `fetch`, script, font, imagine sau link extern în cod; nu există gazde externe. Politica CSP din pagină blochează orice conexiune externă.
 - Permisiuni: niciuna cerută de aplicație. Opțional, la apăsarea butoanelor: sinteză vocală, Wake Lock, ecran complet, clipboard, vibrații (la dispozitive care le au), partajare nativă (butonul „Distribuie rezultatul”, doar dacă browserul o oferă).
 - Zero telemetrie, fără cont.
@@ -56,6 +57,11 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet sau de server.
 
 ## Istoric / Changelog
+
+### 11 octombrie 2026 (rev. 2)
+- Jurnal: păstrare locală opțională (opt-in) și avertisment la părăsirea paginii cu text nesalvat; câmpul de stare este anunțat de cititoarele de ecran (`role="status"`).
+- Buton „Aa” pentru mărimea textului (100/115/130%); bara de sus nu depășește lățimea la 360 px.
+- Avertismentul privind lipsa validării științifice rămâne neschimbat.
 
 ### 11 octombrie 2026
 - Jurnal personal: sub câmpul de text se afișează acum permanent numărul de caractere și faptul că textul nu se salvează automat (anterior câmpul de stare rămânea gol până la o acțiune).
