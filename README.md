@@ -4,6 +4,8 @@ Curs educațional offline, într-un singur fișier HTML, despre inforenergetică
 
 **Live:** https://chiuta.github.io/Inforenergetica/
 
+**Ultima actualizare:** 11 octombrie 2026
+
 ![Captura de ecran](screenshot.png)
 
 ## Avertisment
@@ -52,6 +54,14 @@ Verificate în cod și în browser:
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet sau de server.
+
+## Istoric / Changelog
+
+### 11 octombrie 2026
+- Jurnal personal: sub câmpul de text se afișează acum permanent numărul de caractere și faptul că textul nu se salvează automat (anterior câmpul de stare rămânea gol până la o acțiune).
+- Accesibilitate: bara de sus este un `<header>`; axe-core raportează 0 încălcări la 1280 și 360 px.
+- CSP: `script-src` folosește hash SHA-256 în loc de `'unsafe-inline'` (aplicația nu are handler-e inline).
+- Avertismentul privind lipsa validării științifice rămâne neschimbat.
 
 ## Licență
 

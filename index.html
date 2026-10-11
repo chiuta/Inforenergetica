@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-sAEyl8g8i/PDW7plgYRr7ZAhdU6bfhxPZsYevYAElOg='; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark light">
@@ -456,7 +456,7 @@
 <body>
 <noscript><p style="margin:0;padding:1rem;font-family:sans-serif;background:#fff;color:#000;">Această aplicație are nevoie de JavaScript pentru navigarea între secțiuni. Avertisment: inforenergetica este o practică neconvențională, fără validare științifică; conținutul nu este sfat medical.</p></noscript>
 
-<div class="topbar">
+<header class="topbar">
   <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul" aria-controls="sidebar" aria-expanded="false">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
@@ -489,7 +489,7 @@
     <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="4.9" y1="4.9" x2="6.6" y2="6.6"/><line x1="17.4" y1="17.4" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="6.6" y2="17.4"/><line x1="17.4" y1="6.6" x2="19.1" y2="4.9"/></svg>
     <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.7A8.5 8.5 0 1 1 9.3 3.5a7 7 0 0 0 11.2 11.2Z"/></svg>
   </button>
-</div>
+</header>
 <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
 
 <div class="backdrop" id="backdrop"></div>
@@ -1730,8 +1730,15 @@
   function journalMsg(msg){
     if(!journalStatus) return;
     journalStatus.textContent = msg;
-    setTimeout(function(){ if(journalStatus.textContent === msg) journalStatus.textContent = ''; }, 2600);
+    setTimeout(function(){ if(journalStatus.textContent === msg){ journalStatus.textContent = ''; journalCounter(); } }, 2600);
   }
+  // Stare permanentă: câte caractere are textul și că nu se salvează automat
+  function journalCounter(){
+    if(!journalStatus || !journalText) return;
+    var n = journalText.value.length;
+    journalStatus.textContent = n ? (n + ' caractere · nesalvat (rămâne doar în această pagină; folosește „Descarcă” pentru a-l păstra)') : '';
+  }
+  if(journalText){ journalText.addEventListener('input', journalCounter); }
   if(journalDownload){
     journalDownload.addEventListener('click', function(){
       var content = journalText ? journalText.value : '';
