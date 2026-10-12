@@ -1,10 +1,10 @@
 # Inforenergetica — curs interactiv
 
+**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+
 Curs educațional offline, într-un singur fișier HTML, despre inforenergetică (13 grade + nivelul IOS), cu analiză SWOT/TOWS, glosar și autoevaluare.
 
 **Live:** https://chiuta.github.io/Inforenergetica/
-
-**Ultima actualizare:** 11 octombrie 2026
 
 ![Captura de ecran](screenshot.png)
 
@@ -58,6 +58,9 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet sau de server.
 
 ## Istoric / Changelog
+
+### 12 octombrie 2026 — versiunea 1.0.0
+- 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație
 
 ### 11 octombrie 2026 (rev. 3)
 - Navigarea între secțiuni se reflectă în adresă (`#id`): legături directe, buton „Înapoi”/„Înainte” funcțional, hash invalid sau necunoscut duce la Acasă. Nu se adaugă stocare. CSP: hash recalculat.
