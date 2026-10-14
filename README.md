@@ -1,6 +1,6 @@
 # Inforenergetica — curs interactiv
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 Curs educațional offline, într-un singur fișier HTML, despre inforenergetică (13 grade + nivelul IOS), cu analiză SWOT/TOWS, glosar și autoevaluare.
 
@@ -58,6 +58,9 @@ Verificate în cod și în browser:
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet sau de server.
 
 ## Istoric / Changelog
+
+### 1.1.0 — 2026-10-14
+- Copie de rezervă și etichetare date (fff-kit).
 
 ### 12 octombrie 2026 — versiunea 1.0.0
 - 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație
