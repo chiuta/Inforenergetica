@@ -91,6 +91,6 @@ MIT — vezi fișierul LICENSE.
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Rezumat
 
-Inforenergetica is a single-file, offline, Romanian-language educational course on "inforenergetics", a non-conventional practice with no scientific validation (considered pseudoscience by the scientific community). It includes 13 grades plus a top level, a SWOT/TOWS analysis, glossary, a quiz and a chance-based "calibration" game that measures nothing. A permanent disclaimer states it is not medical advice. No storage, no external requests, no telemetry.
+Inforenergetica este un curs educațional într-un singur fișier, offline, în limba română, despre „inforenergetică”, o practică neconvențională fără validare științifică (considerată pseudoștiință de comunitatea științifică). Include 13 grade plus un nivel superior, o analiză SWOT/TOWS, glosar, un test și un joc de „calibrare” bazat pe întâmplare, care nu măsoară nimic. Un avertisment permanent precizează că nu este sfat medical. Fără stocare, fără cereri externe, fără telemetrie.
