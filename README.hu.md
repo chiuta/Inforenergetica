@@ -10,7 +10,7 @@ Offline oktatási tanfolyam egyetlen HTML-fájlban az inforenergetikáról (13 f
 
 **Online alkalmazás:** https://chiuta.github.io/Inforenergetica/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Figyelmeztetés
 

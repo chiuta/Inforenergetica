@@ -10,7 +10,7 @@ An offline educational course in a single HTML file about inforenergetics (13 gr
 
 **Live app:** https://chiuta.github.io/Inforenergetica/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 ## Disclaimer
 

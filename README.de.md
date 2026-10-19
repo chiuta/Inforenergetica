@@ -10,7 +10,7 @@ Ein Offline-Lernkurs in einer einzigen HTML-Datei über Inforenergetik (13 Grade
 
 **Live-App:** https://chiuta.github.io/Inforenergetica/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Warnhinweis
 

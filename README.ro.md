@@ -10,7 +10,7 @@ Curs educațional offline, într-un singur fișier HTML, despre inforenergetică
 
 **Live:** https://chiuta.github.io/Inforenergetica/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Avertisment
 

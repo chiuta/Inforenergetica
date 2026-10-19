@@ -10,7 +10,7 @@ Curso educativo offline, num único ficheiro HTML, sobre a inforenergética (13 
 
 **Aplicação online:** https://chiuta.github.io/Inforenergetica/
 
-![Captura de ecrã](screenshot.png)
+![Captura de ecrã](screenshot.pt.png)
 
 ## Aviso
 

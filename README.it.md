@@ -10,7 +10,7 @@ Corso educativo offline, in un unico file HTML, sull'inforenergetica (13 gradi p
 
 **App online:** https://chiuta.github.io/Inforenergetica/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Avvertenza
 

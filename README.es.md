@@ -10,7 +10,7 @@ Curso educativo sin conexión, en un único archivo HTML, sobre la inforenergét
 
 **Aplicación en línea:** https://chiuta.github.io/Inforenergetica/
 
-![Captura de pantalla](screenshot.png)
+![Captura de pantalla](screenshot.es.png)
 
 ## Advertencia
 

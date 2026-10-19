@@ -10,7 +10,7 @@ Cours éducatif hors ligne, dans un seul fichier HTML, sur l'inforénergétique 
 
 **Application en ligne :** https://chiuta.github.io/Inforenergetica/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## Avertissement
 
