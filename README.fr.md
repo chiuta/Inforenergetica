@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.2.3 · **Dernière mise à jour :** 2026-10-22
+**Version :** 1.2.4 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -62,6 +62,10 @@ Vérifiées dans le code et dans le navigateur :
 Téléchargez `index.html` et ouvrez-le dans un navigateur ; il n'a besoin ni d'internet ni d'un serveur.
 
 ## Historique / Changelog
+
+### 1.2.4 — 2026-10-22
+
+fff-kit 1.1.4 : cibles tactiles et taille de texte minimale. Cibles tactiles/texte corrigés dans l’application.
 
 ### 1.2.3 — 2026-10-22
 
