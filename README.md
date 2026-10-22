@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.1 · **Last updated:** 2026-10-19
+**Version:** 1.2.2 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -62,6 +62,9 @@ Verified in the code and in the browser:
 Download `index.html` and open it in a browser; it needs neither internet nor a server.
 
 ## History / Changelog
+
+### 1.2.2 — 2026-10-22
+- Native browser confirm()/prompt() boxes replaced by own dialogs translated into the 8 languages (clearing the journal); text of at least 12 px on mobile.
 
 ### 1.1.0 — 2026-10-14
 - Backup and data labelling (fff-kit).

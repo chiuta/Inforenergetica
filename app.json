@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "inforenergetica",
   "name": "Inforenergetica — curs interactiv",
-  "version": "1.2.1",
-  "updated": "2026-10-19",
+  "version": "1.2.2",
+  "updated": "2026-10-22",
   "description": "Curs interactiv despre inforenergetică: concepte fundamentale, treisprezece grade și nivelul suprem IOS, glosar și autoevaluare. Document educațional despre o practică neconvențională, fără validare științifică; nu este sfat medical. Aplicație offline, fără frontiere.",
   "egress": [],
   "permissions": [
@@ -15,13 +15,13 @@
     "Web Crypto"
   ],
   "storageKeys": [],
-  "sizeBytes": 841131,
-  "sha256": "8a6f9c6046503cfec8e4be8c16fbcc3db5b56b162732abbf82a111b24bad174d",
+  "sizeBytes": 843726,
+  "sha256": "6b46584dc8416d456b0065f84fadec85f93cbc0cdf76b4d253cc8135380cdb9e",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×3",
+      "script-src": "sha256×4",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data:",
       "base-uri": "'none'",
