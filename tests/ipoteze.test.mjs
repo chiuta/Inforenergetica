@@ -18,6 +18,7 @@ t('bilateral exact 8/10 la p=.5 = 112/1024', Math.abs(st.c - 112 / 1024) < 1e-9,
 t('Wilson 5/10 ≈ [0.237, 0.763]', Math.abs(st.d[0] - 0.2366) < 2e-3 && Math.abs(st.d[1] - 0.7634) < 2e-3, st.d);
 // validări
 await p.fill('#ipClaim', 'Pot ghici simbolul'); await p.fill('#ipHit', 'Ghicit corect'); await p.fill('#ipN', '5'); await p.click('#ipForm button[type=submit]');
+await p.waitForFunction(() => /between 10 and 500/.test(document.getElementById('ipMsg').textContent), null, {timeout: 5000}).catch(() => {});
 t('N prea mic respins', /between 10 and 500/.test(await p.textContent('#ipMsg')));
 await p.fill('#ipN', '10'); await p.fill('#ipP0', '50'); await p.fill('#ipDoubt', 'sub 60% reușite'); await p.click('#ipForm button[type=submit]');
 t('ipoteză înregistrată', (await p.$$('.ip-card')).length === 1 && /1 hypotheses/.test(await p.textContent('#ipCount')));
@@ -41,7 +42,7 @@ const sim = await p.textContent('#ipSimOut'); const m = /\b(\d+) came out below/
 t('simulator: rată de fals pozitive plauzibilă (0–12% din 200)', m && +m[1] >= 0 && +m[1] <= 24, sim);
 await p.reload(); await p.waitForTimeout(300); await p.click('.nav-link[data-target="ipoteze"]');
 t('ipoteza supraviețuiește reîncărcării', (await p.$$('.ip-card')).length === 1 && (await p.$$('.ip-an')).length === 1);
-await p.click('text=Delete hypothesis'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForTimeout(150);
+await p.click('text=Delete hypothesis'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForFunction(() => !document.querySelector('.ip-card'), null, {timeout: 5000}).catch(() => {});
 t('ștergere cu dialog propriu', (await p.$$('.ip-card')).length === 0);
 await p.selectOption('#langSel', 'ro'); t('RO: titlu', /Jurnal de ipoteze/.test(await p.textContent('#ipoteze h2')));
 t('fără erori/CSP', errs.length === 0, errs); t('0 cereri de rețea', net.length === 0, net);
