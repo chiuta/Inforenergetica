@@ -1,0 +1,48 @@
+// Jurnal de ipoteze verificabile (v2.0.0): preînregistrare, test binomial exact, simulator. Rulare: node tests/ipoteze.test.mjs
+import {createRequire} from 'module'; import path from 'node:path'; import {fileURLToPath} from 'node:url'; import fs from 'node:fs';
+const require = createRequire(process.env.PW_ROOT || import.meta.url); const {chromium} = require('playwright');
+const HERE = path.dirname(fileURLToPath(import.meta.url)); const FILE = 'file://' + path.join(HERE, '..', 'index.html');
+let ok = 0, bad = 0; const t = (n, c, x) => { if (c) { ok++; console.log('  ok  ', n); } else { bad++; console.log('  FAIL', n, x ?? ''); } };
+const b = await chromium.launch({executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox']});
+const ctx = await b.newContext({viewport: {width: 1100, height: 900}, locale: 'en-US', acceptDownloads: true});
+const net = []; await ctx.route(/^https?:/, r => { net.push(r.request().url()); r.abort(); });
+const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
+await p.goto(FILE); await p.waitForTimeout(400); await p.selectOption('#langSel', 'en');
+await p.click('.nav-link[data-target="ipoteze"]');
+t('secțiune vizibilă', await p.isVisible('#ipoteze'));
+// statistică de referință
+const st = await p.evaluate(() => { const s = window._ipStats; return {a: s.pGreater(8, 10, 0.5), b: s.pGreater(0, 5, 0.3), c: s.pTwo(8, 10, 0.5), d: s.wilson(5, 10), e: s.pGreater(60, 200, 0.25)}; });
+t('binomial exact P(X>=8 | n=10, p=.5) = 56/1024', Math.abs(st.a - 56 / 1024) < 1e-9, st.a);
+t('P(X>=0) = 1', Math.abs(st.b - 1) < 1e-12);
+t('bilateral exact 8/10 la p=.5 = 112/1024', Math.abs(st.c - 112 / 1024) < 1e-9, st.c);
+t('Wilson 5/10 ≈ [0.237, 0.763]', Math.abs(st.d[0] - 0.2366) < 2e-3 && Math.abs(st.d[1] - 0.7634) < 2e-3, st.d);
+// validări
+await p.fill('#ipClaim', 'Pot ghici simbolul'); await p.fill('#ipHit', 'Ghicit corect'); await p.fill('#ipN', '5'); await p.click('#ipForm button[type=submit]');
+t('N prea mic respins', /between 10 and 500/.test(await p.textContent('#ipMsg')));
+await p.fill('#ipN', '10'); await p.fill('#ipP0', '50'); await p.fill('#ipDoubt', 'sub 60% reușite'); await p.click('#ipForm button[type=submit]');
+t('ipoteză înregistrată', (await p.$$('.ip-card')).length === 1 && /1 hypotheses/.test(await p.textContent('#ipCount')));
+for (let i = 0; i < 3; i++) await p.click('.ip-card .ip-hit');
+t('analiza blocată înainte de final', /unlocks after the last planned trial/.test(await p.textContent('.ip-card')) && (await p.$$('.ip-an')).length === 0);
+await p.check('.ip-chk input'); t('exploratoriu: avertisment + analiză', /Exploratory/.test(await p.textContent('.ip-card')) && (await p.$$('.ip-an')).length === 1);
+await p.uncheck('.ip-chk input');
+await p.click('.ip-card .ip-miss'); await p.click('text=Undo last'); t('anulare ultima încercare', /Trials: 3 of 10/.test(await p.textContent('.ip-prog')), await p.textContent('.ip-prog'));
+for (let i = 0; i < 5; i++) await p.click('.ip-card .ip-hit'); await p.click('.ip-card .ip-miss'); await p.click('.ip-card .ip-miss');
+t('după 10 încercări: butoanele dispar, analiza apare', (await p.$$('.ip-card .ip-hit')).length === 0 && (await p.$$('.ip-an')).length === 1);
+const txt = await p.textContent('.ip-an');
+t('8/10, p unilateral = 0.0547', /8 \/ 10 \(80\.0%\)/.test(txt) && /0\.0547/.test(txt), txt);
+t('prag Bonferroni 0.05 / 1', /0\.05 \/ 1 = 0\.0500/.test(txt));
+t('verdict neutru: compatibil cu hazardul (p ≥ prag)', /compatible with chance/.test(txt) && !/proves a|confirm/i.test(await p.textContent('.ip-verdict')), await p.textContent('.ip-verdict'));
+t('avertisment ipoteze de bază', /independent trials/.test(txt));
+t('persistă în localStorage', await p.evaluate(() => JSON.parse(localStorage.getItem('inforenergetica.ipoteze')).items[0].trials.length === 10));
+const [dl] = await Promise.all([p.waitForEvent('download'), p.click('#ipCsv')]); const csv = fs.readFileSync(await dl.path(), 'utf8');
+t('CSV cu 10 rânduri de încercări', csv.trim().split(/\r\n/).length === 11 && csv.startsWith('id,created,claim'));
+await p.fill('#ipSimN', '50'); await p.fill('#ipSimP', '25'); await p.click('#ipSim');
+const sim = await p.textContent('#ipSimOut'); const m = /\b(\d+) came out below/.exec(sim);
+t('simulator: rată de fals pozitive plauzibilă (0–12% din 200)', m && +m[1] >= 0 && +m[1] <= 24, sim);
+await p.reload(); await p.waitForTimeout(300); await p.click('.nav-link[data-target="ipoteze"]');
+t('ipoteza supraviețuiește reîncărcării', (await p.$$('.ip-card')).length === 1 && (await p.$$('.ip-an')).length === 1);
+await p.click('text=Delete hypothesis'); await p.waitForSelector('dialog[open]'); await p.click('dialog[open] .fff-primary'); await p.waitForTimeout(150);
+t('ștergere cu dialog propriu', (await p.$$('.ip-card')).length === 0);
+await p.selectOption('#langSel', 'ro'); t('RO: titlu', /Jurnal de ipoteze/.test(await p.textContent('#ipoteze h2')));
+t('fără erori/CSP', errs.length === 0, errs); t('0 cereri de rețea', net.length === 0, net);
+await b.close(); console.log(`\n${ok} reușite, ${bad} eșuate`); process.exit(bad ? 1 : 0);
