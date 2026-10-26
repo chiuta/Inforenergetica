@@ -14,9 +14,13 @@
     "localStorage",
     "Web Crypto"
   ],
-  "storageKeys": [],
-  "sizeBytes": 896812,
-  "sha256": "d0ea8c39f694b1d6362382d2e3f2f61ddff40b01d89636a96ef3a1284b49cc2b",
+  "storageKeys": [
+    "inforenergetica-jurnal",
+    "inforenergetica-jurnal-pastrat",
+    "inforenergetica-lang"
+  ],
+  "sizeBytes": 896892,
+  "sha256": "055f23fdfa8a97e1166c0548be24749cb4a2af85f88ac8338a980e36d8f3aaf0",
   "csp": {
     "present": true,
     "directives": {
