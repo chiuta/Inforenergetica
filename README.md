@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Last updated:** 2026-10-26
+**Version:** 2.0.1 · **Last updated:** 2026-10-27
+
+**Status:** stable; descriptive study (no therapeutic claims) · **Offline:** complete (no network requests)
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +62,10 @@ Verified in the code and in the browser:
 ## Running locally / offline
 
 Download `index.html` and open it in a browser; it needs neither internet nor a server.
+
+## Evidence panel: sources (2026-10-27)
+
+A **"What the evidence says"** note (key `ev_html`, 8 languages) now sits under the permanent disclaimer: no published meta-analyses, systematic reviews or controlled trials were found for inforenergetics as such ("source to be completed"); related "biofield" practices are cited via Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. No therapeutic claim.
 
 ## History / Changelog
 
