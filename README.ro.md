@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.0.2 · **Ultima actualizare:** 2026-10-27
 
 **Stare:** stabil; studiu descriptiv (fără afirmații terapeutice) · **Offline:** complet (fără cereri de rețea)
 
@@ -66,6 +66,12 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet sau
 ## Panoul de dovezi: surse (2026-10-27)
 
 O notă **„Ce spun dovezile”** (cheia `ev_html`, 8 limbi) apare acum sub avertismentul permanent: pentru inforenergetică ca atare nu s-au găsit meta-analize, recenzii sistematice sau studii controlate publicate („sursă de completat”); practicile „de biocâmp” înrudite sunt citate prin Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. Fără afirmații terapeutice.
+
+### Verificarea surselor (2026-10-27, 2.0.2)
+
+- **Jain & Mills, Int J Behav Med 2010**: titlu și DOI 10.1007/s12529-009-9062-4 confirmate (înregistrarea eScholarship; rezumat: dovezi puternice pentru reducerea durerii în populații cu durere, moderate în unele grupuri, echivoce în rest, „need for further high-quality studies”). Volumul/numărul/paginile `17(1):1-16` nu au fost vizibile pe paginile deschise, deci rămân neconfirmate.
+- **Adăugat** (practică înrudită, nu inforenergetica însăși): Memorial Sloan Kettering Cancer Center, „BioResonance Therapy” (pagină actualizată 25 feb. 2021): „Bioresonance therapies are based on unproven theories.” Pagina a fost deschisă și citită; vorbește despre bioresonanță, înrudită dar nu identică cu ce predă cursul.
+- Pentru inforenergetică ca atare: tot nicio meta-analiză, recenzie sistematică sau studiu controlat găsit; rămâne „sursă de completat”.
 
 ## Istoric / Changelog
 
