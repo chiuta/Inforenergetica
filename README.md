@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.1 · **Last updated:** 2026-10-27
+**Version:** 2.0.2 · **Last updated:** 2026-10-27
 
 **Status:** stable; descriptive study (no therapeutic claims) · **Offline:** complete (no network requests)
 
@@ -66,6 +66,12 @@ Download `index.html` and open it in a browser; it needs neither internet nor a 
 ## Evidence panel: sources (2026-10-27)
 
 A **"What the evidence says"** note (key `ev_html`, 8 languages) now sits under the permanent disclaimer: no published meta-analyses, systematic reviews or controlled trials were found for inforenergetics as such ("source to be completed"); related "biofield" practices are cited via Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. No therapeutic claim.
+
+### Source check (2026-10-27, 2.0.2)
+
+- **Jain & Mills, Int J Behav Med 2010**: title and DOI 10.1007/s12529-009-9062-4 confirmed (eScholarship record; abstract: strong evidence for pain reduction in pain populations, moderate in some groups, equivocal elsewhere, "need for further high-quality studies"). The volume/issue/pages `17(1):1-16` were not visible on the pages I could open, so they stay unconfirmed.
+- **Added** (related practice, not inforenergetics itself): Memorial Sloan Kettering Cancer Center, "BioResonance Therapy" (page updated 25 Feb 2021): "Bioresonance therapies are based on unproven theories." The page was opened and its content read; it covers bioresonance, which is related but not identical to what the course teaches.
+- For inforenergetics as such: still no meta-analysis, systematic review or controlled trial found; marked "source to be completed".
 
 ## History / Changelog
 
