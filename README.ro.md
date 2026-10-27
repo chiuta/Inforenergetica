@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil; studiu descriptiv (fără afirmații terapeutice) · **Offline:** complet (fără cereri de rețea)
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -60,6 +62,10 @@ Verificate în cod și în browser:
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet sau de server.
+
+## Panoul de dovezi: surse (2026-10-27)
+
+O notă **„Ce spun dovezile”** (cheia `ev_html`, 8 limbi) apare acum sub avertismentul permanent: pentru inforenergetică ca atare nu s-au găsit meta-analize, recenzii sistematice sau studii controlate publicate („sursă de completat”); practicile „de biocâmp” înrudite sunt citate prin Jain & Mills, *Int J Behav Med* 2010;17(1):1-16. Fără afirmații terapeutice.
 
 ## Istoric / Changelog
 
