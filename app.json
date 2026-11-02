@@ -19,8 +19,8 @@
     "inforenergetica-jurnal-pastrat",
     "inforenergetica-lang"
   ],
-  "sizeBytes": 929463,
-  "sha256": "e03b43982e93dcd86194af8897083b7c7b55a07e33674c2e12b0452cee0eb2dc",
+  "sizeBytes": 1069898,
+  "sha256": "9078d148af2cf129fd7126806eb7eda45f3de460edb85ea047aa9632aafb0593",
   "csp": {
     "present": true,
     "directives": {
@@ -60,7 +60,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "kit": {
@@ -70,7 +74,11 @@
       "store",
       "dialog",
       "label",
-      "bundle"
+      "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history"
     ]
   },
   "selfSerializing": false
