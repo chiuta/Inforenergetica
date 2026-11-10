@@ -6,5 +6,5 @@ const n = r => (h.match(r) || []).length;
 t('DOI Jain & Mills în 8 limbi (+ro)', n(/10\.1007\/s12529-009-9062-4/g) >= 8);
 t('sursa MSK BioResonance în 8 limbi (+ro)', n(/mskcc\.org\/cancer-care\/integrative-medicine\/herbs\/bioresonance-therapy \(page updated 25 Feb 2021/g) >= 8);
 t('„sursă de completat" pentru inforenergetică păstrat', /Inforenergetică \/ inforenergetică[^<]*sursă de completat/.test(h));
-t('versiune 2.0.4', JSON.parse(fs.readFileSync(path.join(HERE, '..', 'app.json'), 'utf8')).version === '2.0.4');
+t('versiune 2.0.5', JSON.parse(fs.readFileSync(path.join(HERE, '..', 'app.json'), 'utf8')).version === '2.0.5');
 console.log(`\n${ok} reușite, ${bad} eșuate`); process.exit(bad ? 1 : 0);
