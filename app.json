@@ -12,20 +12,21 @@
     "clipboard",
     "serviceWorker",
     "localStorage",
-    "Web Crypto"
+    "Web Crypto",
+    "WebGL"
   ],
   "storageKeys": [
     "inforenergetica-jurnal",
     "inforenergetica-jurnal-pastrat",
     "inforenergetica-lang"
   ],
-  "sizeBytes": 1124008,
-  "sha256": "10a210d319bf22313d524d04701cdebc17b8a2bbbefebcb77b2536e62b499686",
+  "sizeBytes": 1175651,
+  "sha256": "2bda85a679b273563477eb5f20a771385c060f24305ca6cd47361de3606e8058",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×4",
+      "script-src": "sha256×5",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data:",
       "base-uri": "'none'",
